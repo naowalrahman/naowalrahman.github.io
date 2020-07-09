@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+         <title>KA Project - Shooting Star</title>
+         <script type="text/javascript" src="processing-1.3.6.min.js"></script>  
+         <script type="text/javascript" src="init.js"></script> 
+    </head>
+    <body>
+        <div style="text-align: center;">
+    <h1 style="font-family: Arial, Helvetica, sans-serif;">KA Project - Shooting Star</h1>
+    
+    <script type="application/processing">
+        
+        var xPos = 25;
+        var yPos = 41;
+        var Rr = 29;
+        var Gg = 40;
+        var Bb = 115;
+        var rectxPos = 39;
+        var rectyPos = 357;
+        var rectRadius = -19;
+
+        draw = function() {
+            size(700, 512);
+            
+            fill(0, 102, 153);
+            background(Rr, Gg, Bb);
+            fill(255, 242, 0);
+            ellipse(xPos, yPos, 10, 10);
+            textSize(32);
+            fill(#ffffff);
+            text("Processing.js is GREAT!", 163, 45);
+            
+            fill(238, 255, 0);
+            rect(rectxPos, rectyPos, 10, 10, rectRadius); 
+            
+            xPos = xPos + 0.5;
+            yPos = yPos + 0.6;
+            Rr = random(0, 255);
+            Gg = random(0, 255);
+            Bb = random(0, 255);
+            rectxPos = rectxPos + 0.43;
+            rectyPos = rectyPos - 0.6;
+            rectRadius = random(-19, 0);
+            
+        };
+
+    </script>
+
+    <canvas></canvas>
+    <div style="background-color: blueviolet; color: white; font-family: Helvetica; font-size: 2em; padding: 20px; border: 4px solid darkblue; border-radius: 10%; border-style: ridge;">
+<p style="width: 60% center;">This was created with HTML and some embedded Processing.js. The fact that you are able to put a program like this on a webpage with a few script tags is amazing to me!</p> </div>
+        </div>
+    </body>
+</html>
