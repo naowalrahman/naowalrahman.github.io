@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+ <html>
+    <head>
+         <title>KA Project - Animal Attack</title>
+         <script type="text/javascript" src="processing-1.3.6.min.js"></script>  
+         <script type="text/javascript" src="init.js"></script> 
+         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1 style="font-family: Arial, Helvetica, sans-serif;">KA Project - Animal Attack</h1>
+        
+        <div style="text-align: center; padding-left: 50px;">
+        <script type="application/processing">
+    
+         size(512, 512);
+         var bodyX = 220;
+         var bodyY = 200;
+         var bodyW = 165;
+         var bodyH = 85;
+         var faceW = bodyW/2.2;
+         var faceH = 15/17 * bodyH;
+         var L2X = 220;
+         var L4X = 270;
+         var L1X = 172;
+         var L3X = 243;
+         var eyeW = 11;
+         var eyeH = 13;
+         var drawing = 21;
+    
+         draw = function() {
+         
+         // face and body
+         strokeWeight(1);
+         stroke(0, 0, 0);
+         background(207, 254, 255);
+         fill(240, 209, 36);
+         ellipse(bodyX, bodyY, bodyW, 85); 
+         rect(bodyX - 125, bodyY - 64, faceW, faceH, 0);
+         
+         // legs
+         stroke(0, 0, 0);
+         line(L2X, 242, L2X, 280); // leg 2
+         line(L4X, 273, L4X, 234); // leg 4
+         line(L1X, 234, L1X, 271); // leg 1
+         line(L3X, 242, L3X, 280); // leg 3
+         // (Sorry they aren't in order!)
+    
+         // mouth
+         stroke(0, 0, 0);
+         strokeWeight(4);
+         noFill();
+         arc(130, 173, 50, 50, 28, 152);
+         fill(240, 209, 36);
+         noStroke();
+         ellipse(130, 165, 60, 56);
+    
+         // eyes
+         noStroke();
+         fill(140, 103, 2);
+         ellipse(111, 164, eyeW, eyeH);
+         ellipse(145, 164, eyeW, eyeH);
+         
+         // the eyes become HUGE!
+         
+         eyeW = eyeW + 0.05;
+         eyeH = eyeH + 0.05;
+    
+         };
+    
+        </script>
+    
+        <canvas></canvas>
+         </div>
+    </body>
+</html>
