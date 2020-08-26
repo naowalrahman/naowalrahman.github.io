@@ -2,48 +2,94 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Project: Event invite</title>
         <style>
-            h1 {
-                font-family: "Helvetica", sans-serif;
-                text-align: center;
-                color: darkblue;
+            @media only screen and (min-device-width : 1280px) and (max-device-width : 7680px) {
+                h1 {
+                    font-family: "Helvetica", sans-serif;
+                    text-align: center;
+                    color: darkblue;
+                }
+                body {
+                    font-family: "Raleway", sans-serif;
+                    background-color: rgb(255, 254, 250);
+                    margin: 12px;
+                    border: 1px solid;
+                    padding: 15px;
+                    padding-top: 0px;
+                }
+                p {
+                    line-height: 1.4em;
+                }
+                #details {
+                    color: dodgerblue;
+                    line-height: 1.6em;
+                }
+                #details-bg {
+                    background-color: rgb(245, 245, 215);
+                    padding: 15px;
+                    padding-top: 2px;
+                    padding-bottom: 2px;
+                }
+                a {
+                    text-decoration: none;
+                    color: rgb(255, 117, 124);
+                }
+                #requirements {
+                    line-height: 1.6em;
+                }
+                #bye {
+                    font-size: 1.5em;
+                    font-weight: bold;
+                }
+                a:hover {
+                    background-color: rgb(171, 203, 255);
+                }
             }
-            body {
-                font-family: "Raleway", sans-serif;
-                background-color: rgb(255, 254, 250);
-                margin: 12px;
-                border: 1px solid;
-                padding: 15px;
-                padding-top: 0px;
-            }
-            p {
-                line-height: 1.4em;
-            }
-            #details {
-                color: dodgerblue;
-                line-height: 1.6em;
-            }
-            #details-bg {
-                background-color: rgb(245, 245, 215);
-                padding: 15px;
-                padding-top: 2px;
-                padding-bottom: 2px;
-            }
-            a {
-                text-decoration: none;
-                color: rgb(255, 117, 124);
-            }
-            #requirements {
-                line-height: 1.6em;
-            }
-            #bye {
-                font-size: 1.5em;
-                font-weight: bold;
-            }
-            a:hover {
-                background-color: rgb(171, 203, 255);
+            @media only screen and (min-device-width : 260px) and (max-device-width : 480px) {
+                h1 {
+                    font-family: "Helvetica", sans-serif;
+                    text-align: center;
+                    color: darkblue;
+                }
+                body {
+                    font-family: "Raleway", sans-serif;
+                    background-color: rgb(255, 254, 250);
+                    margin: 8px;
+                    border: 1px solid;
+                    padding: 5px;
+                    padding-top: 0px;
+                    width: 98%;
+                }
+                p {
+                    line-height: 1.4em;
+                }
+                #details {
+                    color: dodgerblue;
+                    line-height: 1.6em;
+                }
+                #details-bg {
+                    background-color: rgb(245, 245, 215);
+                    padding: 15px;
+                    padding-top: 2px;
+                    padding-bottom: 2px;
+                }
+                a {
+                    text-decoration: none;
+                    color: rgb(255, 117, 124);
+                }
+                #requirements {
+                    line-height: 1.6em;
+                }
+                #bye {
+                    font-size: 1.5em;
+                    font-weight: bold;
+                }
+                a:hover {
+                    background-color: rgb(171, 203, 255);
+                }
             }
         </style>
     </head>

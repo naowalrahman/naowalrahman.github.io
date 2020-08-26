@@ -38,7 +38,7 @@
             padding: 5px;
         }
         a {
-            color: #2f6e91 
+            color: #2f6e91; 
         }
         a:hover {
             background-color: lightblue;
@@ -48,8 +48,26 @@
             padding: 20px;
             padding-left: 40px;
             float: right;
-            width: 25%
-            
+            width: 25%;    
+        }
+        @media only screen and (max-width:480px) {
+            .main {
+                width: 100%;
+                padding: 2px;
+                float: none;
+            }
+            body, html {
+                width: 95%;
+                height: auto;
+                padding: 2px;
+            }
+            html {
+                background-image: none;
+            }
+            #sidebar {
+                float: none;
+                width: 100%
+            }
         }
     </style>
 </head>
@@ -85,7 +103,7 @@
         <li>Twitter: @UrBoiNaowal (I don't post anything though)</li>
         <li>GitHub: naowalrahman</li>
     </ul> 
-    <h5>By the way, this wesbite was intended for desktop devices, and won't work properly if you view it on a mobile device.</h5>
+    <h5>By the way, this wesbite works best on desktop devices, and won't look <em>perfect</em> if you view it on a mobile device.</h5>
 
     </div>
     
