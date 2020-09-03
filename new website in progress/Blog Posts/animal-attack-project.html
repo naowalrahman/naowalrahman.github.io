@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Animal Attack Project &amp; Thoughts</title>
+    <meta property="og:type" content="website">
+    <meta name="description" content="Hello! I'm Naowal Rahman, a student at Stuyvesant High School. This is my personal website, where I write reviews as well as about my thoughts and interests. Check it out and see if it's interesting!">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Courier+Prime">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<script type="text/javascript" src="/assets/js/processing-1.3.6.min.js"></script>
+<script type="text/javascript" src="/assets/js/init.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container"><a class="navbar-brand" href="../index.html">Naowal Rahman</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div
+                class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="../blog.html">Blog</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="../contact.html">Contact Me</a></li>
+                </ul>
+        </div>
+        </div>
+    </nav>
+    <header class="masthead" style="background: url(../assets/img/main-bg.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <div class="post-heading">
+                        <h1>Animal Attack Project (from Khan Academy)</h1>
+                        <h2 class="subheading">Problems look mighty small from 150 miles up</h2><span class="meta">Posted by&nbsp;<a href="#">Start Bootstrap</a>&nbsp;on August 24, 2018</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto"><div>
+    <script type="application/processing">
+
+        size(512, 512);
+        var bodyX = 220;
+        var bodyY = 200;
+        var bodyW = 165;
+        var bodyH = 85;
+        var faceW = bodyW/2.2;
+        var faceH = 15/17 * bodyH;
+        var L2X = 220;
+        var L4X = 270;
+        var L1X = 172;
+        var L3X = 243;
+        var eyeW = 11;
+        var eyeH = 13;
+        var drawing = 21;
+
+        draw = function() {
+
+        // face and body
+        strokeWeight(1);
+        stroke(0, 0, 0);
+        background(207, 254, 255);
+        fill(240, 209, 36);
+        ellipse(bodyX, bodyY, bodyW, 85); 
+        rect(bodyX - 125, bodyY - 64, faceW, faceH, 0);
+
+        // legs
+        stroke(0, 0, 0);
+        line(L2X, 242, L2X, 280); // leg 2
+        line(L4X, 273, L4X, 234); // leg 4
+        line(L1X, 234, L1X, 271); // leg 1
+        line(L3X, 242, L3X, 280); // leg 3
+        // (Sorry they aren't in order!)
+
+        // mouth
+        stroke(0, 0, 0);
+        strokeWeight(4);
+        noFill();
+        arc(130, 173, 50, 50, 28, 152);
+        fill(240, 209, 36);
+        noStroke();
+        ellipse(130, 165, 60, 56);
+
+        // eyes
+        noStroke();
+        fill(140, 103, 2);
+        ellipse(111, 164, eyeW, eyeH);
+        ellipse(145, 164, eyeW, eyeH);
+
+        // the eyes become HUGE!
+
+        eyeW = eyeW + 0.05;
+        eyeH = eyeH + 0.05;
+
+        };
+
+    </script>
+    <canvas></canvas>
+</div>
+                    <p>Alright, so this is another&nbsp;<a class="text-primary" data-bs-hover-animate="flash" href="https://github.com/processing-js/processing-js" target="_blank" style="border-style: none;">processing.js</a>&nbsp;Khan Academy project. This
+                        was originally created in the Khan Academy environment, but then transferred over to <a class="text-primary" data-bs-hover-animate="flash" href="https://code.visualstudio.com/" target="_blank" style="border-style: none;">Visual Studio Code</a>.
+                        That created problems, though. Since&nbsp;<a class="text-primary" data-bs-hover-animate="flash" href="https://khanacademy.org" target="_blank" style="border-style: none;">Khan Academy</a> and I use a different version of processing.js
+                        (and I don't know which one they use) some features just end up not working when I transfer to VS Code. The problem this time was that I used an&nbsp;<span style="font-family: 'Courier Prime', monospace;">arc()</span>&nbsp;command
+                        to draw the smile on the dog. It appeared fine on Khan Academy, but completely messed up here once transferred. Basically, the smile went from looking like a smile to just a circle. So, the last 2 parameters of the&nbsp;<span style="font-family: 'Courier Prime', monospace;">arc()</span>&nbsp;command
+                        weren't read properly, I guess? Anyway, to fix that, I had to use an&nbsp;<span style="font-family: 'Courier Prime', monospace;">ellipse()</span> command to cover up the the part of the arc that I didn't want. I tried searching
+                        for a more legitimate solution, but I couldn't find any.<br></p>
+                    <p>Everything would have been easier if I knew the version of processing.js that Khan Academy used, so I could just transfer my projects over for easy access, but they won't say 🤷‍♂️.<br></p>
+                    <figure class="figure"><img class="img-fluid figure-img" src="../assets/img/Animal%20Attack%20Project/extra%20ellipse%20command%20for%20animal%20attack%20project.png" width="450">
+                        <figcaption class="figure-caption">The extra&nbsp;<span style="font-family: 'Courier Prime', monospace;">ellipse()</span>&nbsp;command</figcaption>
+                    </figure>
+                    <p>Above is the extra&nbsp;<span style="font-family: 'Courier Prime', monospace;">ellipse()</span> command that I had to use in order to make the smile on my "animal" actually look like a smile.<br></p>
+                    <figure class="figure"><img class="img-fluid figure-img" src="../assets/img/Animal%20Attack%20Project/works%20just%20fine%20in%20khan%20academy_LI.jpg" width="1200">
+                        <figcaption class="figure-caption">Working just fine without the ellipse&nbsp;</figcaption>
+                    </figure>
+                    <p>However, as you see above, the same&nbsp;<span style="font-family: 'Courier Prime', monospace;">arc()</span> command works just fine in Khan Academy.<br></p>
+                    <p>If Khan Academy released these new features, then it would be a lot easier for people looking to work both inside and outside of Khan Academy:<br></p>
+                    <ul>
+                        <li>Tell us the versions of languages they are using (especially JavaScript).<br></li>
+                        <li>Make their built in text editor (for all courses) match the features and styles of an average text editor with little to no back-end processing going on.<br></li>
+                        <li>For their&nbsp;<a class="text-primary" data-bs-hover-animate="flash" href="https://github.com/processing-js/processing-js" target="_blank" style="border-style: none;"><span style="text-decoration: underline;">processing.js course</span></a>,&nbsp;make
+                            the text editor an HTML file with&nbsp;<span style="font-family: 'Courier Prime', monospace;">&lt;script&gt;</span>&nbsp;tags to match how you would actually edit processing.js.<br></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </article>
+    <footer>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto">
+                    <p class="text-muted copyright">You are allowed to use information on this site with proper citation. This is original work and all uses of it must be cited.</p>
+                    <p class="text-muted copyright">Copyright&nbsp;©&nbsp;Naowal Rahman 2020</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/js/smart-forms.min.js"></script>
+    <script src="../assets/js/bs-init.js"></script>
+    <script src="../assets/js/clean-blog.js"></script>
+    <script src="../assets/js/init.js"></script>
+    <script src="../assets/js/processing-1.3.6.min.js"></script>
+</body>
+
+</html>
