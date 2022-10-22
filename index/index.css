@@ -1,64 +1,30 @@
-/* tailwind */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 /* title */
-#header-wrap {
-    /* padding: 10em 0em 0em 10em; */
+h1 {
+    padding: 10em 0em 0em 10em;
+}
+#header-line1 {
     animation: bottom-fade-in 1.5s ease-in-out;
+    margin-bottom: 0em;
+}
+
+#header-line2 {
+    animation: bottom-fade-in 3s ease-in-out;
+    animation-delay: 1.5s;
 }
 
 @keyframes bottom-fade-in {
-    from {
+    0% {
+    }
+    50% {
         opacity: 0;
         transform: translate3d(0, 20px, 0);
     }
-    to {
+    100% {
         opacity: 1;
         transform: translate3d(0, 0, 0);
-    }
-}
-
-#header-wrap h1 {
-    margin: 0%;
-    
-}
-
-#typewriter-wrap {
-    display: flex;
-    justify-content: left;
-}
-
-.typewriter h1 {
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: 0.15em solid orange; /* The typwriter cursor */
-    /* white-space: nowrap; Keeps the content on a single line */
-    /* margin: 0 auto; Gives that scrolling effect as the typing happens */
-    letter-spacing: 0.02em; /* Adjust as needed */
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-}
-
-/* The typing effect */
-@keyframes typing {
-    from {
-        width: 0%;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-    from,to {
-        border-color: transparent;
-    }
-    50% {   
-        border-color: #a7cced;
     }
 }
 
