@@ -2,39 +2,75 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 /* title */
-h1 {
-    padding: 10em 0em 0em 10em;
+.overlay {
+    padding-top: 8em;
+    text-align: center;
 }
+
+.overlay h1 {
+    padding-bottom: 0.3em;
+}
+
 #header-line1 {
-    animation: bottom-fade-in 1.5s ease-in-out;
+    animation: bottom-fade-in-delay 1.2s forwards ease-in-out;
     margin-bottom: 0em;
 }
 
 #header-line2 {
-    animation: bottom-fade-in 3s ease-in-out;
+    opacity: 0;
+    animation: bottom-fade-in-delay 1.2s forwards ease-in-out;
+    animation-delay: 0.75s;
+}
+
+#header-line3 {
+    opacity: 0;
+    animation: bottom-fade-in-delay 1.2s forwards ease-in-out;
     animation-delay: 1.5s;
+    font-size: 0.75em;
+    padding-bottom: 2em;
+}
+
+#header-line1, #header-line2 {
+    display: inline-block;
+    padding: 0.12em;
 }
 
 @keyframes bottom-fade-in {
-    0% {
-    }
-    50% {
+    from {
         opacity: 0;
         transform: translate3d(0, 20px, 0);
     }
-    100% {
+
+    to {
         opacity: 1;
         transform: translate3d(0, 0, 0);
     }
 }
 
+@keyframes bottom-fade-in-delay {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+/* .navbar-nav li a {
+    color: white;
+}
+.navbar-nav li a :hover {
+    color: white;
+} */
+
 /* body css */
 body {
     font-family: 'Inter', sans-serif;
-    color: #FFFFFF;
-    background-color: #060e22;
-}
-
-a {
-    color: #a7cced;
 }
