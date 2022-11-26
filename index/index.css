@@ -35,6 +35,12 @@
     padding: 0.12em;
 }
 
+#fade-body-in {
+    opacity: 0;
+    animation: bottom-fade-in 1.2s forwards ease-in-out;
+    animation-delay: 2.5s;
+}
+
 @keyframes bottom-fade-in {
     from {
         opacity: 0;
