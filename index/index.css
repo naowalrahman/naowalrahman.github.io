@@ -1,13 +1,4 @@
 /* title */
-.overlay {
-    padding-top: 8em;
-    text-align: center;
-}
-
-.overlay h1 {
-    padding-bottom: 0.3em;
-}
-
 #header-line1 {
     animation: bottom-fade-in-delay 1.2s forwards ease-in-out;
     margin-bottom: 0em;
@@ -62,18 +53,9 @@
     }
 }
 
-.navbar-collapse {
-    justify-content: flex-end;
-}
-
 /* .navbar-nav li a {
     color: white;
 }
 .navbar-nav li a :hover {
     color: white;
 } */
-
-/* body css */
-body {
-    font-family: 'Inter', sans-serif;
-}
