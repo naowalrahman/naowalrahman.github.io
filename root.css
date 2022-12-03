@@ -1,5 +1,44 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 :root {
-    --font-family-sans-serif: 'Inter', sans-serif;
+    --bs-font-sans-serif: 'Inter', sans-serif;
+    --bs-body-bg: #060e22;
+    --bs-body-color: white;
 }
+
+.overlay {
+    padding-top: 8em;
+    text-align: center;
+}
+
+.overlay h1 {
+    padding-bottom: 0.3em;
+}
+
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.navbar {
+    background-color: #0a183b;
+}
+
+.nav-link, .nav-link, .navbar-brand {
+    color: #d5eded;
+}
+
+.nav-link:hover, .nav-link:focus, .navbar-brand:hover {
+    color: #8387c7;
+}
+
+.dropdown-menu, .dropdown-item {
+    background-color: #484c96;
+    color: white;
+}
+
+.list-group-item { 
+    background-color: #3ddd9a;
+    color: #060e22;
+}
+    /* 0a183b */
