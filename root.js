@@ -18,6 +18,7 @@ var navbar = `
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="../math-blog/">Math</a></li>
                             <li><a class="dropdown-item" href="../cs-blog/">CS</a></li>
+                            <li><a class="dropdown-item" href="../archive-blog/">Archive</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
