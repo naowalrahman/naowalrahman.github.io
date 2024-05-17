@@ -6,13 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Naowal Rahman</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+
+    <title>Naowal's Corner</title>
+
     <!-- bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <!-- stylesheets -->
-    <link rel="stylesheet" href="index.css"/>
-    <link rel="stylesheet" href="/root.css"/>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="/root.css" />
     <script defer src="/root.js"></script>
 </head>
 
@@ -31,37 +38,94 @@
     </header>
 
     <div id="fade-body-in">
-    <p class="container">
-        Hi! I'm Naowal, a senior at Stuyvesant High School. I'm interested in mathematics, engineering, computer science, problem solving, and Linux. I have experience working with Python, C++, HTML, CSS, JavaScript, Java, and Julia. In college, I plan on majoring in computer science and physics.
-    </p>
-    <p class="container">
-        I'm involved in many activities at my school:
+        <p class="container">
+            Hi! I'm Naowal, a senior at Stuyvesant High School. I'm interested in mathematics, engineering, computer
+            science, problem solving, and Linux. I have experience working with Python, C++, HTML, CSS, JavaScript,
+            Java, and Julia. In college, I plan on majoring in computer science and physics.
+        </p>
+        <p class="container">
+            Here's some stuff I like to do:
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div class="list-group" id="list-tab" role="tablist">
+                        <a class="list-group-item list-group-item-action active" id="list-cp-list" data-bs-toggle="list"
+                            href="#list-cp" role="tab" aria-controls="list-home">Competitive Programming</a>
+                        <a class="list-group-item list-group-item-action" id="list-robotics-list" data-bs-toggle="list"
+                            href="#list-robotics" role="tab" aria-controls="list-profile">Robotics</a>
+                        <a class="list-group-item list-group-item-action" id="list-reading-list" data-bs-toggle="list"
+                            href="#list-reading" role="tab" aria-controls="list-messages">Reading</a>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="list-cp" role="tabpanel"
+                            aria-labelledby="list-cp-list">
+                            <div class="card bg-primary">
+                                <div class="card-body">
+                                    <ul class="container">
+                                        <li>VP @ StuyCCC (Stuyvesant Competitive Coding Club)</li>
+                                        <li>USACO Silver</li>
+                                        <li>Codeforces + Atcoder</li>
+                                        <li>PClassic</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="list-robotics" role="tabpanel"
+                            aria-labelledby="list-robotics-list">
+                            <div class="card bg-primary">
+                                <div class="card-body">
+                                    <ul class="container">
+                                        <li>FRC Team 694 - StuyPulse</li>
+                                        <li>Swerve Drive</li>
+                                        <li>Vision</li>
+                                        <li>Autonomous</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="list-reading" role="tabpanel"
+                            aria-labelledby="list-reading-list">
+                            <div class="card bg-primary">
+                                <div class="card-body">
+                                    <ul class="container">
+                                        <li>Six Easy Pieces, Richard Feynman</li>
+                                        <li>How Not to Be Wrong: The Power of Mathematical Thinking, Jordan Ellenberg
+                                        </li>
+                                        <li>Something Deeply Hidden, Sean Caroll</li>
+                                        <li>A Wrinkle in Time, Madeleine L'Engle</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </p>
+
+        <p class="container">
+            Some fun information about me:
         <ul class="container list-group">
-            <li class="list-group-item">StuyCCC (Stuyvesant Competitive Coding Club)</li>
-            <li class="list-group-item">Instructional director for Open Source Studio, where I teach students about web development.</li>
-            <li class="list-group-item">Student union IT department</li>
-            <li class="list-group-item">StuyPulse robotics (FRC Team 694)</li>
-            <li class="list-group-item">Muslim Students Association</li>
-        </ul>
-    </p>
-    <p class="container">
-        Some fun information about me:
-        <ul class="container list-group">
-            <li class="list-group-item">I have a <a href="https://www.youtube.com/channel/UCb3x_i1_3cK9JvS8WnASVBg" class="text-link">YouTube channel</a>.</li>
+            <li class="list-group-item">I have a <a href="https://www.youtube.com/channel/UCb3x_i1_3cK9JvS8WnASVBg"
+                    class="text-link">YouTube channel</a>.</li>
             <li class="list-group-item">I like to edit videos, and my favorite editor is Davinci Resolve.</li>
-            <li class="list-group-item">I love video games! I play Minecraft, Fortnite, Rocket League, and No Man's Sky.</li> 
-            <li class="list-group-item">I enjoy exploring new technologies, hardware or software. Creating things is fun!</li>
+            <li class="list-group-item">I love video games! I play Minecraft, Fortnite, Rocket League, and No Man's Sky.
+            </li>
+            <li class="list-group-item">I'm ardently curious and learn for fun.</li>
             <li class="list-group-item">I relish playing basketball &mdash; my favorite play is the hook shot!</li>
         </ul>
-    </p>
+        </p>
 
-    <p class="container mt-5">
-        You can find me programming at my <a href="https://github.com/naowalrahman" class="text-link" target="_blank" link-success>GitHub</a>.
-    </p>
+        <p class="container mt-5">
+            You can find me programming at my <a href="https://github.com/naowalrahman" class="text-link"
+                target="_blank" link-success>GitHub</a>.
+        </p>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 </body>
 
