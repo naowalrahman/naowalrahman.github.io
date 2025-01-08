@@ -1,0 +1,239 @@
+.blog-container {
+    font-family: Reforma1918;
+    display: block; /* Let react-sidebar handle the sidebar */
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 1rem;
+    position: relative; /* Add relative positioning */
+    padding: 2rem;
+    padding-top: 4rem; /* Provide space if there's a navbar above */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Wider cards */
+    gap: 1rem;
+}
+
+.grid-item {
+    background: var(--foreground);
+    padding: 2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        115deg,
+        transparent,
+        rgba(var(--accent-rgb), 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.grid-item:hover::before {
+    left: 100%;
+}
+
+.grid-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.grid-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--text);
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.grid-item p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+}
+
+.back-btn {
+    background: var(--accent);
+    color: var(--text);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.sidebar-toggle {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--accent);
+    color: var(--text);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it is above other elements */
+}
+
+.sidebar {
+    width: 250px;
+    padding: 1rem;
+    border-right: 1px solid var(--border);
+    position: static; /* Let react-sidebar handle docking */
+    top: 0;
+    left: 0; /* Align the sidebar to the left */
+    /* height: 100vh; */
+    overflow-y: auto;
+    transition: transform 0.3s ease; /* Add transition for smooth sliding */
+    transform: translateX(-100%); /* Hide sidebar by default */
+}
+
+.sidebar.open {
+    transform: translateX(0); /* Show sidebar when open */
+    position: static;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.sidebar li {
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+    margin: 0.25rem 0;
+}
+
+.sidebar li.active {
+    background: var(--accent);
+    color: var(--text);
+}
+
+.content {
+    text-align: left;
+    flex: 1;
+    padding: 1rem 2rem;
+    max-width: 900px;
+    /* margin-left: 270px; Add margin to account for the fixed sidebar */
+}
+
+.content h1 {
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+.content h2 {
+    margin: 1.5rem 0 1rem;
+    color: var(--accent);
+}
+
+.content p {
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.content pre {
+    margin: 1.5rem 0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.content code:not([class*="language-"]) {
+    background: var(--foreground);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.content blockquote {
+    border-left: 4px solid var(--accent);
+    padding: 0.5rem 1rem;
+    margin: 1.5rem 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+}
+
+@media (max-width: 768px) {
+    .sidebar-toggle {
+        display: block; /* Show toggle button on small screens */
+    }
+
+    .sidebar {
+        transform: translateX(-100%); /* Hide sidebar by default on small screens */
+    }
+
+    .sidebar.open {
+        transform: translateX(0); /* Show sidebar when open on small screens */
+    }
+
+    .content {
+        padding: 1rem; /* Adjust content padding for small screens */
+    }
+}
+
+.papermod-btn {
+    /* A simple button style reminiscent of Papermod */
+    background: var(--accent);
+    color: var(--text);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    position: relative; /* No absolute positioning to avoid covering */
+    margin-bottom: 1rem;
+}
+
+.papermod-sidebar {
+    padding: 1rem;
+    line-height: 1.6;
+}
+
+.papermod-sidebar ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.papermod-sidebar li {
+    padding: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.papermod-sidebar li.active {
+    background: var(--accent);
+    color: var(--text);
+}
+
+.papermod-content {
+    background: var(--foreground);
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    line-height: 1.8;
+}
