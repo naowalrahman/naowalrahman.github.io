@@ -71,6 +71,7 @@
 }
 
 .back-btn {
+    font-family: Reforma1918;
     background: var(--accent);
     color: var(--text);
     border: none;
@@ -156,27 +157,32 @@
     margin: 1.5rem 0;
     border-radius: 6px;
     overflow: hidden;
+    background: var(--foreground) !important;
 }
 
-.content code:not([class*="language-"]) {
-    background: var(--foreground);
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
+.content pre code {
+    font-family: 'Fira Code', monospace;
     font-size: 0.9rem;
+    line-height: 1.5;
 }
 
-.content blockquote {
-    border-left: 4px solid var(--accent);
-    padding: 0.5rem 1rem;
-    margin: 1.5rem 0;
-    border-radius: 0 4px 4px 0;
+/* Syntax highlighting customization */
+.content .syntax-highlighter {
+    background: var(--foreground) !important;
+    padding: 1rem !important;
+    border-radius: 6px !important;
+    margin: 1.5rem 0 !important;
 }
 
-.content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-    margin: 1.5rem 0;
+/* KaTeX math rendering */
+.katex-display {
+    margin: 0 !important;
+    padding: 0.8rem 0 !important;
+    overflow-x: auto;
+}
+
+.katex {
+    font-size: 1.1em !important;
 }
 
 @media (max-width: 768px) {
@@ -198,14 +204,14 @@
 }
 
 .papermod-btn {
-    /* A simple button style reminiscent of Papermod */
     background: var(--accent);
+    font-family: Reforma1918;
     color: var(--text);
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
     border-radius: 4px;
-    position: relative; /* No absolute positioning to avoid covering */
+    position: relative;
     margin-bottom: 1rem;
 }
 
@@ -230,10 +236,51 @@
     color: var(--text);
 }
 
+.papermod-content p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
 .papermod-content {
     background: var(--foreground);
     box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
     padding: 1rem 2rem;
     line-height: 1.8;
+}
+
+span {
+    text-shadow: none !important;
+}
+
+/* Add link styles to match Home page */
+.papermod-content a {
+    color: var(--accent);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.papermod-content a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.papermod-content a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.papermod-content a:hover {
+    color: var(--primary);
 }
