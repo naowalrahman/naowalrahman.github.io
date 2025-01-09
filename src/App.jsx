@@ -7,6 +7,7 @@ import Blog from './pages/Blog'
 import { tokyoNight } from './theme'
 import './App.css'
 
+// App
 function App() {
     const [isDark, setIsDark] = useState(
         window.matchMedia('(prefers-color-scheme: dark)').matches
