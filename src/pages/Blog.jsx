@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Sidebar from 'react-sidebar'
-import Markdown from 'markdown-to-jsx'
+import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { oneDark as syntaxTheme } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css'
 import './Blog.css'
 
 export default function Blog() {
@@ -46,12 +49,17 @@ export default function Blog() {
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
+    const processMarkdown = (content) => {
+        // Convert $$ ... $$ to display math
+        return content.replace(/\$\$(.*?)\$\$/gs, (_, math) => `$$\n${math}\n$$`);
+    };
+
     function handlePostSelect(post) {
         fetch(`/blog-posts/${post.file}`)
             .then(response => response.text())
             .then(content => {
                 setSelectedPost(post)
-                setPostContent(content)
+                setPostContent(processMarkdown(content))
                 setSidebarOpen(false)
             })
             .catch(error => {
@@ -69,6 +77,27 @@ export default function Blog() {
         const wordsPerMinute = 200
         const minutes = Math.ceil(post.wordCount / wordsPerMinute)
         return `${minutes} min read`
+    }
+
+    const components = {
+        code({node, inline, className, children, ...props}) {
+            const match = /language-(\w+)/.exec(className || '')
+            return !inline && match ? (
+                <SyntaxHighlighter
+                    language={match[1]}
+                    style={syntaxTheme}
+                    PreTag="div"
+                    showLineNumbers={true}
+                    {...props}
+                >
+                    {String(children).replace(/\n$/, '')}
+                </SyntaxHighlighter>
+            ) : (
+                <code className={className} {...props}>
+                    {children}
+                </code>
+            )
+        }
     }
 
     return (
@@ -114,9 +143,13 @@ export default function Blog() {
                         <p className="post-meta">
                             {selectedPost.date} • {selectedPost.wordCount} words • {calculateReadingTime(selectedPost)}
                         </p>
-                        <Markdown>
+                        <ReactMarkdown
+                            components={components}
+                            remarkPlugins={[remarkMath]}
+                            rehypePlugins={[rehypeKatex]}
+                        >
                             {postContent}
-                        </Markdown>
+                        </ReactMarkdown>
                     </div>
                 ) : (
                     <div className="grid-container">

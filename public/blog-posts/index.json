@@ -1,12 +1,7 @@
 [
-      {
-        "slug": "first-post",
-        "title": "First Post",
-        "file": "first-post.md"
-      },
-      {
-        "slug": "second-post",
-        "title": "Second Post",
-        "file": "second-post.md"
-      }
-    ]
+    {
+        "slug": "backpropagation",
+        "title": "Understanding Backpropagation",
+        "file": "backpropagation.md"
+    }
+]
