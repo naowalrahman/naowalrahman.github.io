@@ -1,0 +1,197 @@
+.home {
+    font-family: Reforma1918;
+    font-weight: 300;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    /* padding: 2rem; */
+}
+
+.intro-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5rem;
+}
+
+.header h2 {
+    font-size: 1.2em;
+    color: var(--accent);
+}
+
+.content-section {
+    max-width: 800px;
+    margin: 0 auto;
+    /* padding: 1rem; */
+}
+
+.tabs-container {
+    margin: 2rem 0;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
+.tab {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.tab:hover {
+    background: var(--background);
+    transform: scale(1.05);
+}
+
+.tab.active {
+    background: var(--accent);
+    color: var(--text);
+}
+
+.tab-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.tab-content {
+    text-align: left;
+}
+
+.tab-content .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    opacity: 1; /* Ensure the card body is visible by default */
+    transition: opacity 0.2s ease-in-out;
+}
+
+.tab-content .card-body .list-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.3s, opacity 0.2s ease-in-out;
+    opacity: 1; /* Ensure the list items are visible by default */
+}
+
+.tab-content .card-body .list-item.hidden {
+    opacity: 0; /* Apply fade out transition */
+}
+
+.tab-content .card-body .list-item.fade {
+    opacity: 0; /* Apply fade transition */
+}
+
+.tab-content .card-body .list-item:hover {
+    background: var(--accent);
+    transform: scale(1.05);
+    color: var(--text);
+    transition: background 0.3s, transform 0.3s; /* Ensure hover transition works correctly */
+}
+
+.tab-content .card-body .list-item-icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.list-group-item {
+    background: var(--background);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+.list-group-item.active {
+    background: var(--accent);
+    border-color: var (--accent);
+}
+
+.card {
+    background: var(--background);
+    border-color: var(--border);
+}
+
+.text-link {
+    color: var(--accent);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.text-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.text-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.text-link:hover {
+    color: var(--primary);
+}
+
+.content {
+    text-align: center;
+    max-width: 800px;
+}
+
+.facts {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: var(--accent);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--primary);
+}

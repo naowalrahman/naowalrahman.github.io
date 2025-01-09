@@ -1,0 +1,286 @@
+.blog-container {
+    font-family: Reforma1918;
+    display: block; /* Let react-sidebar handle the sidebar */
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 1rem;
+    position: relative; /* Add relative positioning */
+    padding: 2rem;
+    padding-top: 4rem; /* Provide space if there's a navbar above */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Wider cards */
+    gap: 1rem;
+}
+
+.grid-item {
+    background: var(--foreground);
+    padding: 2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        115deg,
+        transparent,
+        rgba(var(--accent-rgb), 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.grid-item:hover::before {
+    left: 100%;
+}
+
+.grid-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.grid-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--text);
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.grid-item p {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+}
+
+.back-btn {
+    font-family: Reforma1918;
+    background: var(--accent);
+    color: var(--text);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.sidebar-toggle {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--accent);
+    color: var(--text);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it is above other elements */
+}
+
+.sidebar {
+    width: 250px;
+    padding: 1rem;
+    border-right: 1px solid var(--border);
+    position: static; /* Let react-sidebar handle docking */
+    top: 0;
+    left: 0; /* Align the sidebar to the left */
+    /* height: 100vh; */
+    overflow-y: auto;
+    transition: transform 0.3s ease; /* Add transition for smooth sliding */
+    transform: translateX(-100%); /* Hide sidebar by default */
+}
+
+.sidebar.open {
+    transform: translateX(0); /* Show sidebar when open */
+    position: static;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.sidebar li {
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+    margin: 0.25rem 0;
+}
+
+.sidebar li.active {
+    background: var(--accent);
+    color: var(--text);
+}
+
+.content {
+    text-align: left;
+    flex: 1;
+    padding: 1rem 2rem;
+    max-width: 900px;
+    /* margin-left: 270px; Add margin to account for the fixed sidebar */
+}
+
+.content h1 {
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+.content h2 {
+    margin: 1.5rem 0 1rem;
+    color: var(--accent);
+}
+
+.content p {
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.content pre {
+    margin: 1.5rem 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--foreground) !important;
+}
+
+.content pre code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Syntax highlighting customization */
+.content .syntax-highlighter {
+    background: var(--foreground) !important;
+    padding: 1rem !important;
+    border-radius: 6px !important;
+    margin: 1.5rem 0 !important;
+}
+
+/* KaTeX math rendering */
+.katex-display {
+    margin: 0 !important;
+    padding: 0.8rem 0 !important;
+    overflow-x: auto;
+}
+
+.katex {
+    font-size: 1.1em !important;
+}
+
+@media (max-width: 768px) {
+    .sidebar-toggle {
+        display: block; /* Show toggle button on small screens */
+    }
+
+    .sidebar {
+        transform: translateX(-100%); /* Hide sidebar by default on small screens */
+    }
+
+    .sidebar.open {
+        transform: translateX(0); /* Show sidebar when open on small screens */
+    }
+
+    .content {
+        padding: 1rem; /* Adjust content padding for small screens */
+    }
+}
+
+.papermod-btn {
+    background: var(--accent);
+    font-family: Reforma1918;
+    color: var(--text);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.papermod-sidebar {
+    padding: 1rem;
+    line-height: 1.6;
+}
+
+.papermod-sidebar ul {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.papermod-sidebar li {
+    padding: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.papermod-sidebar li.active {
+    background: var(--accent);
+    color: var(--text);
+}
+
+.papermod-content p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.papermod-content {
+    background: var(--foreground);
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    line-height: 1.8;
+}
+
+span {
+    text-shadow: none !important;
+}
+
+/* Add link styles to match Home page */
+.papermod-content a {
+    color: var(--accent);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.papermod-content a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.papermod-content a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.papermod-content a:hover {
+    color: var(--primary);
+}

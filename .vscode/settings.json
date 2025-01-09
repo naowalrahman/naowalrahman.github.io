@@ -1,9 +1,0 @@
-{
-    "grammarly.selectors": [
-        {
-            "language": "html",
-            "scheme": "file",
-            "pattern": "KA Project - Blog.html"
-        }
-    ]
-}
