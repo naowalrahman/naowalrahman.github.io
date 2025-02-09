@@ -60,7 +60,9 @@
     padding: 1rem;
     margin: 0.5rem;
     border-radius: 8px;
-    transition: background 0.3s, transform 0.3s;
+    transition:
+        background 0.3s,
+        transform 0.3s;
 }
 
 .tab:hover {
@@ -97,7 +99,10 @@
     background: var(--background);
     border: 1px solid var(--border);
     border-radius: 8px;
-    transition: background 0.3s, transform 0.3s, opacity 0.2s ease-in-out;
+    transition:
+        background 0.3s,
+        transform 0.3s,
+        opacity 0.2s ease-in-out;
     opacity: 1; /* Ensure the list items are visible by default */
 }
 
@@ -113,7 +118,9 @@
     background: var(--accent);
     transform: scale(1.05);
     color: var(--text);
-    transition: background 0.3s, transform 0.3s; /* Ensure hover transition works correctly */
+    transition:
+        background 0.3s,
+        transform 0.3s; /* Ensure hover transition works correctly */
 }
 
 .tab-content .card-body .list-item-icon {
@@ -146,7 +153,7 @@
 }
 
 .text-link::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     transform: scaleX(0);
@@ -194,4 +201,8 @@
 
 .social-icons a:hover {
     color: var(--primary);
+}
+
+#links-section {
+    padding-bottom: 1rem;
 }

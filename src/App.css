@@ -4,12 +4,12 @@
     flex-direction: column;
 }
 
-.app>* {
+.app > * {
     padding: 0 2rem;
 }
 
 @media (max-width: 768px) {
-    .app>* {
+    .app > * {
         padding: 0 1rem;
     }
 }
