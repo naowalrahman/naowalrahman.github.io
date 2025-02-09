@@ -28,18 +28,13 @@
 }
 
 .grid-item::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
     width: 200%;
     height: 100%;
-    background: linear-gradient(
-        115deg,
-        transparent,
-        rgba(var(--accent-rgb), 0.2),
-        transparent
-    );
+    background: linear-gradient(115deg, transparent, rgba(var(--accent-rgb), 0.2), transparent);
     transition: 0.5s;
 }
 
@@ -161,7 +156,7 @@
 }
 
 .content pre code {
-    font-family: 'Fira Code', monospace;
+    font-family: "Fira Code", monospace;
     font-size: 0.9rem;
     line-height: 1.5;
 }
@@ -244,7 +239,7 @@
 
 .papermod-content {
     background: var(--foreground);
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 1rem 2rem;
     line-height: 1.8;
@@ -264,7 +259,7 @@ span {
 }
 
 .papermod-content a::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     transform: scaleX(0);

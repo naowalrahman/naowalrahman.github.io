@@ -17,18 +17,18 @@
     color: var(--accent);
 }
 
-.links {
+.desktop-links {
     display: flex;
     align-items: center;
     gap: 2rem;
 }
 
-.links a {
+.desktop-links a {
     font-weight: 500;
     transition: color 0.2s;
 }
 
-.links a:hover {
+.desktop-links a:hover {
     color: var(--accent);
 }
 
@@ -47,4 +47,49 @@
 
 .theme-toggle:hover {
     background: var(--foreground);
+}
+
+/* Hide mobile menu on larger screens */
+.mobile-menu {
+    display: none;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .desktop-links {
+        display: none;
+    }
+    .mobile-menu {
+        display: block;
+        position: relative;
+    }
+    .menu-toggle {
+        background: none;
+        border: none;
+        color: var(--text);
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 4px;
+    }
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--background);
+        border: 1px solid var(--border);
+        padding: 1rem;
+        gap: 1rem;
+        z-index: 100;
+        min-width: 120px;
+        text-align: center;
+    }
+    .dropdown a {
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+    .dropdown a:hover {
+        color: var(--accent);
+    }
 }

@@ -31,18 +31,13 @@
 }
 
 .project-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
     width: 200%;
     height: 100%;
-    background: linear-gradient(
-        115deg,
-        transparent,
-        rgba(var(--accent-rgb), 0.2),
-        transparent
-    );
+    background: linear-gradient(115deg, transparent, rgba(var(--accent-rgb), 0.2), transparent);
     transition: 0.5s;
 }
 
