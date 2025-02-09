@@ -11,7 +11,7 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Wider cards */
+    grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr)); /* Wider cards */
     gap: 1rem;
 }
 
