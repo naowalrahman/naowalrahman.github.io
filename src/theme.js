@@ -1,12 +1,12 @@
 export const tokyoNight = {
     light: {
-        background: "#f8f9fa", // Soft off-white background
-        foreground: "#ffffff", // Pure white for cards/elements
-        primary: "#2a6b9c", // Deep blue for primary elements
-        secondary: "#e63946", // Warm red for secondary elements
-        accent: "#89c2f3", // Much lighter blue for better contrast with dark text
-        text: "#1d3557", // Dark blue-gray for text
-        border: "#dee2e6", // Light gray for borders
+        background: "#f8f9fa",
+        foreground: "#ffffff",
+        primary: "#2a6b9c",
+        secondary: "#e63946",
+        accent: "#89c2f3",
+        text: "#1d3557",
+        border: "#dee2e6",
     },
     dark: {
         background: "#121212",
