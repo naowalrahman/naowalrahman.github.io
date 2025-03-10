@@ -95,9 +95,9 @@ export default function Blog() {
     const slugify = (text) => {
         return text
             .toLowerCase()
-            .replace(/[^\w\s-]/g, '')
-            .replace(/[\s_-]+/g, '-')
-            .replace(/^-+|-+$/g, '');
+            .replace(/[^\w\s-]/g, "")
+            .replace(/[\s_-]+/g, "-")
+            .replace(/^-+|-+$/g, "");
     };
 
     // Extract headings after content is loaded
@@ -105,25 +105,25 @@ export default function Blog() {
         if (postContent && contentRef.current) {
             // Wait for the markdown to be rendered
             setTimeout(() => {
-                const headingElements = contentRef.current.querySelectorAll('h1, h2, h3');
-                
+                const headingElements = contentRef.current.querySelectorAll("h1, h2, h3");
+
                 // Process each heading to add IDs and collect for TOC
-                const headingsData = Array.from(headingElements).map(heading => {
+                const headingsData = Array.from(headingElements).map((heading) => {
                     const text = heading.textContent;
                     const id = slugify(text);
-                    
+
                     // Add id attribute to heading if not already present
                     if (!heading.id) {
                         heading.id = id;
                     }
-                    
+
                     return {
                         id: heading.id,
                         text,
-                        level: parseInt(heading.tagName.charAt(1))
+                        level: parseInt(heading.tagName.charAt(1)),
                     };
                 });
-                
+
                 setHeadings(headingsData);
             }, 100);
         } else {
@@ -135,26 +135,23 @@ export default function Blog() {
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: "smooth" });
         }
     };
 
     // Custom TOC component
     const TableOfContents = () => {
         if (headings.length < 2) return null; // Don't show TOC if not enough headings
-        
+
         return (
             <div className="toc">
                 <div className="toc-heading">Table of Contents</div>
                 <nav>
                     <ul className="toc-list">
                         {headings.map((heading, index) => (
-                            <li 
-                                key={index} 
-                                className={`toc-item toc-level-${heading.level}`}
-                            >
-                                <a 
-                                    href={`#${heading.id}`} 
+                            <li key={index} className={`toc-item toc-level-${heading.level}`}>
+                                <a
+                                    href={`#${heading.id}`}
                                     onClick={(e) => {
                                         e.preventDefault();
                                         scrollToSection(heading.id);
@@ -196,9 +193,9 @@ export default function Blog() {
             );
         },
         // Add custom heading components to ensure IDs are added
-        h1: ({node, ...props}) => <h1 id={slugify(props.children.toString())} {...props}/>,
-        h2: ({node, ...props}) => <h2 id={slugify(props.children.toString())} {...props}/>,
-        h3: ({node, ...props}) => <h3 id={slugify(props.children.toString())} {...props}/>
+        h1: ({ node, ...props }) => <h1 id={slugify(props.children.toString())} {...props} />,
+        h2: ({ node, ...props }) => <h2 id={slugify(props.children.toString())} {...props} />,
+        h3: ({ node, ...props }) => <h3 id={slugify(props.children.toString())} {...props} />,
     };
 
     return (
@@ -246,22 +243,14 @@ export default function Blog() {
                         <p className="post-meta">
                             {selectedPost.date} • {selectedPost.wordCount} words • {calculateReadingTime(selectedPost)}
                         </p>
-                        
+
                         {/* Display the TOC if there are headings */}
                         {headings.length > 1 && <TableOfContents />}
-                        
+
                         <ReactMarkdown
                             components={components}
-                            remarkPlugins={[
-                                remarkGfm, 
-                                remarkMath,
-                                remarkDirective,
-                            ]}
-                            rehypePlugins={[
-                                rehypeSlug,
-                                rehypeKatex,
-                                [rehypeHighlight, { ignoreMissing: true }],
-                            ]}
+                            remarkPlugins={[remarkGfm, remarkMath, remarkDirective]}
+                            rehypePlugins={[rehypeSlug, rehypeKatex, [rehypeHighlight, { ignoreMissing: true }]]}
                         >
                             {postContent}
                         </ReactMarkdown>
