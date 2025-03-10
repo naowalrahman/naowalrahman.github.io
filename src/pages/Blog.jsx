@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Sidebar from "react-sidebar";
 import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark as syntaxTheme } from "react-syntax-highlighter/dist/esm/styles/prism";
+import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import remarkDirective from "remark-directive";
+import rehypeSlug from "rehype-slug";
+import rehypeHighlight from "rehype-highlight";
 import "katex/dist/katex.min.css";
+import "highlight.js/styles/atom-one-dark.css";
 import "./Blog.css";
 
 export default function Blog() {
@@ -14,6 +17,8 @@ export default function Blog() {
     const [postContent, setPostContent] = useState("");
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [docked, setDocked] = useState(false);
+    const [headings, setHeadings] = useState([]);
+    const contentRef = useRef(null);
 
     useEffect(() => {
         async function fetchPosts() {
@@ -86,32 +91,121 @@ export default function Blog() {
         return `${minutes} min read`;
     }
 
+    // Add this function to generate a slug from heading text
+    const slugify = (text) => {
+        return text
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/[\s_-]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    };
+
+    // Extract headings after content is loaded
+    useEffect(() => {
+        if (postContent && contentRef.current) {
+            // Wait for the markdown to be rendered
+            setTimeout(() => {
+                const headingElements = contentRef.current.querySelectorAll('h1, h2, h3');
+                
+                // Process each heading to add IDs and collect for TOC
+                const headingsData = Array.from(headingElements).map(heading => {
+                    const text = heading.textContent;
+                    const id = slugify(text);
+                    
+                    // Add id attribute to heading if not already present
+                    if (!heading.id) {
+                        heading.id = id;
+                    }
+                    
+                    return {
+                        id: heading.id,
+                        text,
+                        level: parseInt(heading.tagName.charAt(1))
+                    };
+                });
+                
+                setHeadings(headingsData);
+            }, 100);
+        } else {
+            setHeadings([]);
+        }
+    }, [postContent]);
+
+    // Function to scroll to section when TOC item is clicked
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    // Custom TOC component
+    const TableOfContents = () => {
+        if (headings.length < 2) return null; // Don't show TOC if not enough headings
+        
+        return (
+            <div className="toc">
+                <div className="toc-heading">Table of Contents</div>
+                <nav>
+                    <ul className="toc-list">
+                        {headings.map((heading, index) => (
+                            <li 
+                                key={index} 
+                                className={`toc-item toc-level-${heading.level}`}
+                            >
+                                <a 
+                                    href={`#${heading.id}`} 
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        scrollToSection(heading.id);
+                                    }}
+                                >
+                                    {heading.text}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            </div>
+        );
+    };
+
     const components = {
+        // Custom components for enhanced rendering
         code({ node, inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");
             return !inline && match ? (
-                <SyntaxHighlighter
-                    language={match[1]}
-                    style={syntaxTheme}
-                    PreTag="div"
-                    showLineNumbers={true}
-                    {...props}
-                >
-                    {String(children).replace(/\n$/, "")}
-                </SyntaxHighlighter>
+                <div className="code-block-wrapper">
+                    {match[1] && <div className="code-language-tag">{match[1]}</div>}
+                    <code className={className} {...props}>
+                        {children}
+                    </code>
+                </div>
             ) : (
                 <code className={className} {...props}>
                     {children}
                 </code>
             );
         },
+        // Add custom components for tables, blockquotes, etc.
+        table({ node, ...props }) {
+            return (
+                <div className="table-container">
+                    <table {...props} />
+                </div>
+            );
+        },
+        // Add custom heading components to ensure IDs are added
+        h1: ({node, ...props}) => <h1 id={slugify(props.children.toString())} {...props}/>,
+        h2: ({node, ...props}) => <h2 id={slugify(props.children.toString())} {...props}/>,
+        h3: ({node, ...props}) => <h3 id={slugify(props.children.toString())} {...props}/>
     };
 
     return (
         <Sidebar
             sidebar={
                 <div className="papermod-sidebar">
-                    <h3>My Blog</h3>
+                    <h3>Posts</h3>
                     <ul>
                         {posts.map((post) => (
                             <li
@@ -145,17 +239,29 @@ export default function Blog() {
                     {sidebarOpen ? "Close" : "Open"} Sidebar
                 </button>
                 {selectedPost ? (
-                    <div className="papermod-content">
+                    <div className="papermod-content" ref={contentRef}>
                         <button className="back-btn" onClick={handleBackToGrid}>
                             Back to Posts
                         </button>
                         <p className="post-meta">
                             {selectedPost.date} • {selectedPost.wordCount} words • {calculateReadingTime(selectedPost)}
                         </p>
+                        
+                        {/* Display the TOC if there are headings */}
+                        {headings.length > 1 && <TableOfContents />}
+                        
                         <ReactMarkdown
                             components={components}
-                            remarkPlugins={[remarkMath]}
-                            rehypePlugins={[rehypeKatex]}
+                            remarkPlugins={[
+                                remarkGfm, 
+                                remarkMath,
+                                remarkDirective,
+                            ]}
+                            rehypePlugins={[
+                                rehypeSlug,
+                                rehypeKatex,
+                                [rehypeHighlight, { ignoreMissing: true }],
+                            ]}
                         >
                             {postContent}
                         </ReactMarkdown>
