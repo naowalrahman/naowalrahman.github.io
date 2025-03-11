@@ -20,6 +20,33 @@ export default function Blog() {
     const [headings, setHeadings] = useState([]);
     const contentRef = useRef(null);
 
+    // Helper function to strip markdown syntax and get clean text
+    const stripMarkdown = (markdown) => {
+        return markdown
+            // Remove headers
+            .replace(/^#+\s+/gm, '')
+            // Remove bold/italic
+            .replace(/(\*\*|__)(.*?)\1/g, '$2')
+            .replace(/(\*|_)(.*?)\1/g, '$2')
+            // Remove links
+            .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+            // Remove images
+            .replace(/!\[([^\]]+)\]\([^)]+\)/g, '')
+            // Remove code blocks
+            .replace(/```[\s\S]*?```/g, '')
+            // Remove inline code
+            .replace(/`([^`]+)`/g, '$1')
+            // Remove blockquotes
+            .replace(/^\s*>\s+/gm, '')
+            // Remove horizontal rules
+            .replace(/^(?:[-*_]){3,}$/gm, '')
+            // Remove HTML tags
+            .replace(/<[^>]*>/g, '')
+            // Remove extra whitespace
+            .replace(/\s+/g, ' ')
+            .trim();
+    };
+
     useEffect(() => {
         async function fetchPosts() {
             try {
@@ -31,12 +58,13 @@ export default function Blog() {
                         const postContent = await postResponse.text();
                         const wordCount = postContent.split(/\s+/).length;
                         const excerptLength = 20;
-                        const excerpt =
-                            postContent
-                                .replace(/^# .*\n/, "")
-                                .match(/[\w']+/g)
-                                ?.slice(0, excerptLength)
-                                .join(" ") + "...";
+                        
+                        // Strip markdown first, then create excerpt
+                        const cleanContent = stripMarkdown(postContent.replace(/^# .*\n/, ""));
+                        const excerpt = cleanContent.split(/\s+/)
+                            .slice(0, excerptLength)
+                            .join(" ") + "...";
+                            
                         const responseHeaders = postResponse.headers;
                         const lastModified = responseHeaders.get("last-modified");
                         const date = lastModified ? new Date(lastModified).toLocaleDateString() : "Unknown date";
@@ -168,7 +196,6 @@ export default function Blog() {
     };
 
     const components = {
-        // Custom components for enhanced rendering
         code({ node, inline, className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");
             return !inline && match ? (
