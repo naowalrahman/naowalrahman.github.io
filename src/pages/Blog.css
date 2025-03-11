@@ -191,8 +191,28 @@
         transform: translateX(0); /* Show sidebar when open on small screens */
     }
 
-    .content {
-        padding: 1rem; /* Adjust content padding for small screens */
+    .content,
+    .papermod-sidebar {
+        padding: 0.5rem;
+    }
+
+    .blog-container {
+        padding: 0.5rem;
+        padding-top: 3rem;
+    }
+
+    .grid-item,
+    .toc,
+    .papermod-content pre {
+        padding: 1rem !important;
+    }
+
+    div.papermod-content {
+        padding: 1rem;
+    }
+
+    .papermod-content blockquote {
+        padding: 0.25rem 0.5rem;
     }
 }
 
@@ -371,16 +391,8 @@ span {
 .toc-item a {
     color: var(--text);
     text-decoration: none;
-    transition: all 0.2s ease;
     display: inline-block;
     padding: 0.2rem 0;
-    border-bottom: 1px solid transparent;
-}
-
-.toc-item a:hover {
-    color: var(--accent);
-    transform: translateX(2px);
-    border-bottom: 1px solid var(--accent);
 }
 
 .toc-level-1 {
