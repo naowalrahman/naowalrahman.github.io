@@ -4,14 +4,14 @@
     max-width: 1400px;
     margin: 0 auto;
     gap: 1rem;
-    position: relative; /* Add relative positioning */
+    position: relative;
     padding: 2rem;
     padding-top: 4rem; /* Provide space if there's a navbar above */
 }
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr)); /* Wider cards */
+    grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
     gap: 1rem;
 }
 
@@ -96,9 +96,8 @@
     position: static; /* Let react-sidebar handle docking */
     top: 0;
     left: 0; /* Align the sidebar to the left */
-    /* height: 100vh; */
     overflow-y: auto;
-    transition: transform 0.3s ease; /* Add transition for smooth sliding */
+    transition: transform 0.3s ease;
     transform: translateX(-100%); /* Hide sidebar by default */
 }
 
@@ -129,7 +128,6 @@
     flex: 1;
     padding: 1rem 2rem;
     max-width: 900px;
-    /* margin-left: 270px; Add margin to account for the fixed sidebar */
 }
 
 .content h1 {
@@ -327,7 +325,7 @@ span {
     z-index: 1;
 }
 
-/* TOC styling - Enhanced */
+/* TOC styling */
 .toc {
     background: var(--foreground);
     border: 1px solid var(--border);
@@ -400,7 +398,7 @@ span {
     color: var(--text-secondary);
 }
 
-/* Heading styling - enhanced for TOC anchors */
+/* Heading styling enhanced for TOC anchors */
 .papermod-content h1,
 .papermod-content h2,
 .papermod-content h3 {
