@@ -74,7 +74,7 @@ export default function Navbar({ isDark, toggleTheme }) {
                             </Link>
                             <a href="https://naowalrahman.rocks/blog" target="_blank" rel="noopener noreferrer">
                                 Blog
-                            </Link>
+                            </a>
                             <button
                                 onClick={() => {
                                     toggleTheme();
