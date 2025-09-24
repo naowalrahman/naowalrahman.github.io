@@ -3,6 +3,20 @@ import { motion } from "framer-motion";
 
 const projectsData = [
     {
+        languages: "PyTorch, TA-Lib, scikit-learn, FastAPI, TypeScript",
+        title: "Machine LEarning Trader (MALET)",
+        description:
+            "A platform to train, test, and analyze machine learning models. Uses LSTM, CNN, Transformer, and GRU-based machine learning models to achieve over 80% average annual returns on the S&P 500, and even more trading leveraged ETFs.",
+        link: "",
+    },
+    {
+        languages: "NextJS, Firebase, TypeScript, MaterialUI",
+        title: "Aucta",
+        description:
+            "A full-stack web auction platform with real-time bidding, live updates, and user profile management. Achieves 100% on Google PageSpeed Insights Benchmark using aggressive server-side rendering and NextJS server actions.",
+        link: "https://github.com/naowalrahman/aucta",
+    },
+    {
         languages: "C++",
         title: "Feedforward Neural Network",
         description:
@@ -68,26 +82,27 @@ const sideHobbiesData = [
             "My custom Arch Linux configuration running Hyprland. Using the foot terminal, zsh with zinit and tmux, the pure prompt, themed Firefox, waybar, tofi, btop, and dunst.",
         link: "https://github.com/naowalrahman/dotfiles",
     },
-    {
-        languages: "Processing, Java",
-        title: "Gravity Guy",
-        description:
-            "A fun, objected-oriented recreation of Gravity Guy. There is level selection, collision detection, touchable and untouchable objects, and restarting capability.",
-        link: "https://github.com/naowalrahman/gravity-guy",
-    },
-    {
-        languages: "Python, Sympy, Matplotlib",
-        title: "Calc",
-        description: "A fast, hackable, terminal-based calculator with algebra and graphing support.",
-        link: "https://naowalrahman.rocks/calc",
-    },
-    {
-        languages: "JavaScript",
-        title: "RISer",
-        description:
-            "A reverse image search browser extension for chromium-based browsers. Uses the Google Images API.",
-        link: "https://naowalrahman.rocks/riser",
-    },
+    // Commenting these out for the foreseeable future
+    // {
+    //     languages: "Processing, Java",
+    //     title: "Gravity Guy",
+    //     description:
+    //         "A fun, objected-oriented recreation of Gravity Guy. There is level selection, collision detection, touchable and untouchable objects, and restarting capability.",
+    //     link: "https://github.com/naowalrahman/gravity-guy",
+    // },
+    // {
+    //     languages: "Python, Sympy, Matplotlib",
+    //     title: "Calc",
+    //     description: "A fast, hackable, terminal-based calculator with algebra and graphing support.",
+    //     link: "https://naowalrahman.rocks/calc",
+    // },
+    // {
+    //     languages: "JavaScript",
+    //     title: "RISer",
+    //     description:
+    //         "A reverse image search browser extension for chromium-based browsers. Uses the Google Images API.",
+    //     link: "https://naowalrahman.rocks/riser",
+    // },
 ];
 
 export default function Projects() {
