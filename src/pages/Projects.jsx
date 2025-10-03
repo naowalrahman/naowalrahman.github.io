@@ -7,7 +7,7 @@ const projectsData = [
         title: "Machine LEarning Trader (MALET)",
         description:
             "A platform to train, test, and analyze machine learning models. Uses LSTM, CNN, Transformer, and GRU-based machine learning models to achieve over 80% average annual returns on the S&P 500, and even more trading leveraged ETFs.",
-        link: "",
+        link: "https://youtu.be/Ia1hZxUDWvU",
     },
     {
         languages: "NextJS, Firebase, TypeScript, MaterialUI",
