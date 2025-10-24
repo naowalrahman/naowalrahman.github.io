@@ -16,11 +16,11 @@
                             l = document.getElementById(t).style.fontWeight,
                             o = document.getElementById(t).style.fontStyle,
                             d = document.createElement("pre");
-                        (d.innerHTML = "font-family: " + i + ";\nfont-weight: " + l + ";\nfont-style: " + o + ";"),
+                        ((d.innerHTML = "font-family: " + i + ";\nfont-weight: " + l + ";\nfont-style: " + o + ";"),
                             firstChild.parentNode.insertBefore(d, firstChild),
-                            (e.innerHTML = "Ocultar código");
+                            (e.innerHTML = "Ocultar código"));
                     }
-                } else (e.innerHTML = "Mostrar código"), e.nextElementSibling.remove();
+                } else ((e.innerHTML = "Mostrar código"), e.nextElementSibling.remove());
             }
             window.onload = function () {
                 var e = document.getElementsByTagName("p"),
