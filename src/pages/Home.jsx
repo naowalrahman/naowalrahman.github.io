@@ -66,7 +66,7 @@ export default function Home() {
                     transition={{ delay: 2.0 }}
                 >
                     <p>
-                        Hi! I'm a sophomore at Columbia University studying computer science and applied physics.
+                        Hi! I'm a sophomore at Columbia University studying computer science and applied mathematics.
                         Broadly, I'm also interested in mathematics, theoretical physics, robotics, engineering, and
                         Linux. More specifically, that involves machine learning, computer vision, computational
                         complexity theory and its applications to robotics, and system level programming. I love working
