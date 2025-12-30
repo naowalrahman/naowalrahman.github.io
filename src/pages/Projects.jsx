@@ -3,6 +3,13 @@ import { motion } from "framer-motion";
 
 const projectsData = [
     {
+        languages: "NextJS, Supabase, Chakra UI, TypeScript",
+        title: "Munchy",
+        description:
+            "A calorie tracking application that helps you log meals, track nutrition, and monitor your daily calorie intake. Munchy features an AI agent for quick meal logging and assistance and integrates with the USDA FoodData Central API for accurate nutritional information.",
+        link: "https://github.com/naowalrahman/munchy",
+    },
+    {
         languages: "PyTorch, TA-Lib, scikit-learn, FastAPI, TypeScript",
         title: "Machine LEarning Trader (MALET)",
         description:
@@ -10,7 +17,7 @@ const projectsData = [
         link: "https://youtu.be/Ia1hZxUDWvU",
     },
     {
-        languages: "NextJS, Firebase, TypeScript, MaterialUI",
+        languages: "NextJS, Firebase, Material UI, TypeScript",
         title: "Aucta",
         description:
             "A full-stack web auction platform with real-time bidding, live updates, and user profile management. Achieves 100% on Google PageSpeed Insights Benchmark using aggressive server-side rendering and NextJS server actions.",
