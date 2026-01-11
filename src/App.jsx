@@ -8,7 +8,7 @@ import "./App.css";
 
 // App
 function App() {
-    const [isDark, setIsDark] = useState(window.matchMedia("(prefers-color-scheme: dark)").matches);
+    const [isDark, setIsDark] = useState(true);
 
     useEffect(() => {
         const root = document.documentElement;

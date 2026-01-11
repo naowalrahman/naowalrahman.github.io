@@ -45,7 +45,9 @@ export default function Navbar({ isDark, toggleTheme }) {
             <div className="desktop-links">
                 <Link to="/">About Me</Link>
                 <Link to="/projects">Projects</Link>
-                <a href="https://naowalrahman.rocks/blog" target="_blank" rel="noopener noreferrer">Blog</a>
+                <a href="https://naowalrahman.rocks/blog" target="_blank" rel="noopener noreferrer">
+                    Blog
+                </a>
                 <button onClick={toggleTheme} className="theme-toggle">
                     {isDark ? <FiSun size={20} /> : <FiMoon size={20} />}
                 </button>
