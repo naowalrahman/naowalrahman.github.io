@@ -206,3 +206,35 @@
 #links-section {
     padding-bottom: 1rem;
 }
+
+.book-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.book-card {
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.book-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+}
+
+.book-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}

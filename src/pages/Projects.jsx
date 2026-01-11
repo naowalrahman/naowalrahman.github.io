@@ -6,7 +6,7 @@ const projectsData = [
         languages: "NextJS, Supabase, Chakra UI, TypeScript",
         title: "Munchy",
         description:
-            "A calorie tracking application that helps you log meals, track nutrition, and monitor your daily calorie intake. Munchy features an AI agent for quick meal logging and assistance and integrates with the USDA FoodData Central API for accurate nutritional information.",
+            "A full-featured app that helps you log meals, track nutrition, and generate insights into your eating. Munchy features an AI agent for quick meal logging and assistance and integrates with the USDA FoodData Central and OpenFoodFacts APIs.",
         link: "https://github.com/naowalrahman/munchy",
     },
     {
@@ -14,7 +14,7 @@ const projectsData = [
         title: "Machine LEarning Trader (MALET)",
         description:
             "A platform to train, test, and analyze machine learning models. Uses LSTM, CNN, Transformer, and GRU-based machine learning models to achieve over 80% average annual returns on the S&P 500, and even more trading leveraged ETFs.",
-        link: "https://youtu.be/Ia1hZxUDWvU",
+        link: "https://github.com/naowalrahman/malet",
     },
     {
         languages: "NextJS, Firebase, Material UI, TypeScript",
@@ -79,7 +79,7 @@ const sideHobbiesData = [
         languages: "Lua",
         title: "Naowal.nvim",
         description:
-            "A custom Neovim configuration built on LazyVim that I continuosly update and maintain in my free time. Features a custom file runner, dashboard, and supertab implementation.",
+            "A custom Neovim configuration built on LazyVim that I continuously update and maintain in my free time. Features a custom file runner, dashboard, and supertab implementation.",
         link: "https://github.com/naowalrahman/naowal.nvim",
     },
     {
