@@ -53,7 +53,7 @@ export default function Home() {
                         <a href="https://www.linkedin.com/in/naowalrahman" target="_blank" rel="noreferrer">
                             <FaLinkedin />
                         </a>
-                        <a href="https://youtube.com/@naowalplayzgames6218" target="_blank" rel="noreferrer">
+                        <a href="https://youtube.com/@naowalrahman" target="_blank" rel="noreferrer">
                             <FaYoutube />
                         </a>
                     </motion.div>
@@ -153,17 +153,7 @@ export default function Home() {
                                     <div className="card-body">
                                         <p>
                                             I like customizing Neovim a lot, and have been experimenting with and trying
-                                            to improve AI-powered coding workflows in Neovim. I'm actually a contributor
-                                            to{" "}
-                                            <a
-                                                href="https://github.com/olimorris/codecompanion.nvim"
-                                                className="text-link"
-                                                target="_blank"
-                                                rel="noreferrer"
-                                            >
-                                                CodeCompanion.nvim
-                                            </a>
-                                            ! Lately, however, I've found{" "}
+                                            to improve AI-powered coding workflows in Neovim. Lately, I've found{" "}
                                             <a
                                                 href="https://github.com/anomalyco/opencode"
                                                 className="text-link"
