@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMoon, FiSun, FiMenu, FiX } from "react-icons/fi";
+import { ROOT_DOMAIN } from "../config";
 import "../fonts/fonts.css";
 import "./Navbar.css";
 
@@ -45,7 +46,7 @@ export default function Navbar({ isDark, toggleTheme }) {
             <div className="desktop-links">
                 <Link to="/">About Me</Link>
                 <Link to="/projects">Projects</Link>
-                <a href="https://naowalrahman.rocks/blog" target="_blank" rel="noopener noreferrer">
+                <a href={`https://${ROOT_DOMAIN}/blog`} target="_blank" rel="noopener noreferrer">
                     Blog
                 </a>
                 <button onClick={toggleTheme} className="theme-toggle">
@@ -74,7 +75,7 @@ export default function Navbar({ isDark, toggleTheme }) {
                             <Link to="/projects" onClick={() => setIsMenuOpen(false)}>
                                 Projects
                             </Link>
-                            <a href="https://naowalrahman.rocks/blog" target="_blank" rel="noopener noreferrer">
+                            <a href={`https://${ROOT_DOMAIN}/blog`} target="_blank" rel="noopener noreferrer">
                                 Blog
                             </a>
                             <button

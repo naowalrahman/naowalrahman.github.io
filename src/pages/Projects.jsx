@@ -1,5 +1,6 @@
 import "./Projects.css";
 import { motion } from "framer-motion";
+import { ROOT_DOMAIN } from "../config";
 
 const projectsData = [
     {
@@ -42,7 +43,7 @@ const projectsData = [
         title: "Groqqo",
         description:
             "A clean, aesthetically pleasing web interface for the Groq API to take advantage of hyper-fast AI inference. Features a responsive and themed design, with ability to use any of Groq's text-based production and preview LLMs.",
-        link: "https://naowalrahman.rocks/groqqo",
+        link: `https://${ROOT_DOMAIN}/groqqo`,
     },
     {
         languages: "WPILib, Java",
@@ -101,14 +102,14 @@ const sideHobbiesData = [
     //     languages: "Python, Sympy, Matplotlib",
     //     title: "Calc",
     //     description: "A fast, hackable, terminal-based calculator with algebra and graphing support.",
-    //     link: "https://naowalrahman.rocks/calc",
+    //     link: `https://${ROOT_DOMAIN}/calc`,
     // },
     // {
     //     languages: "JavaScript",
     //     title: "RISer",
     //     description:
     //         "A reverse image search browser extension for chromium-based browsers. Uses the Google Images API.",
-    //     link: "https://naowalrahman.rocks/riser",
+    //     link: `https://${ROOT_DOMAIN}/riser`,
     // },
 ];
 
