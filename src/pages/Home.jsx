@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaCode, FaBook, FaGithub, FaLinkedin, FaYoutube, FaLaughBeam } from "react-icons/fa";
+import { FaGamepad, FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaGears } from "react-icons/fa6";
+import { GiBookshelf } from "react-icons/gi";
+import HeroCurves from "../components/HeroCurves";
 import "./Home.css";
-import "../fonts/fonts.css";
 
 export default function Home() {
     const [activeTab, setActiveTab] = useState("experience");
@@ -26,26 +28,28 @@ export default function Home() {
         <div className="home">
             <div>
                 <header className="header">
+                    <HeroCurves />
                     <motion.h1
-                        initial={{ y: 50, opacity: 0 }}
+                        initial={{ y: 12, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.5 }}
+                        transition={{ duration: 0.4, delay: 0.05 }}
                     >
                         Hey, <br />
-                        I'm Naowal Rahman.
+                        I'm Naowal Rahman<span className="accent-dot">.</span>
                     </motion.h1>
                     <motion.h2
-                        initial={{ y: 50, opacity: 0 }}
+                        className="tagline"
+                        initial={{ y: 12, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 1.0 }}
+                        transition={{ duration: 0.4, delay: 0.1 }}
                     >
                         student, programmer, & avid Linux user
                     </motion.h2>
                     <motion.div
                         className="social-icons"
-                        initial={{ y: 50, opacity: 0 }}
+                        initial={{ y: 12, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 1.5 }}
+                        transition={{ duration: 0.4, delay: 0.15 }}
                     >
                         <a href="https://github.com/naowalrahman" target="_blank" rel="noreferrer">
                             <FaGithub />
@@ -61,9 +65,9 @@ export default function Home() {
 
                 <motion.div
                     className="content-section"
-                    initial={{ y: 50, opacity: 0 }}
+                    initial={{ y: 12, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 2.0 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
                 >
                     <p>
                         Hi! I'm a sophomore at Columbia University studying computer science and applied mathematics.
@@ -79,21 +83,21 @@ export default function Home() {
                                 className={`tab ${activeTab === "experience" ? "active" : ""}`}
                                 onClick={() => handleTabChange("experience")}
                             >
-                                <FaCode className="tab-icon" />
+                                <FaGears className="tab-icon" />
                                 <span>Experience</span>
                             </div>
                             <div
                                 className={`tab ${activeTab === "fun" ? "active" : ""}`}
                                 onClick={() => handleTabChange("fun")}
                             >
-                                <FaLaughBeam className="tab-icon" />
+                                <FaGamepad className="tab-icon" />
                                 <span>Fun</span>
                             </div>
                             <div
                                 className={`tab ${activeTab === "book-recs" ? "active" : ""}`}
                                 onClick={() => handleTabChange("book-recs")}
                             >
-                                <FaBook className="tab-icon" />
+                                <GiBookshelf className="tab-icon" />
                                 <span>Book Recs</span>
                             </div>
                         </div>
@@ -213,10 +217,10 @@ export default function Home() {
                                                 </div>
                                             </div>
                                             <div className="book-card">
-                                                <div className="book-title">Something Deeply Hidden, Sean Caroll</div>
+                                                <div className="book-title">Something Deeply Hidden, Sean Carroll</div>
                                                 <div className="book-desc">
                                                     The theory of multiverses honestly just captivated my imagination,
-                                                    and I appreicate that Sean Caroll simplified a concept very
+                                                    and I appreciate that Sean Carroll simplified a concept very
                                                     bogged-down in quantum mechanics for people who aren't theoretical
                                                     physicists.
                                                 </div>

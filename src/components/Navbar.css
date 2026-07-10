@@ -1,10 +1,12 @@
 .navbar {
-    font-family: Reforma1918;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background: var(--background);
+    background: color-mix(in srgb, var(--background) 85%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -14,8 +16,12 @@
 }
 
 .logo {
+    font-family: var(--font-serif);
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+.logo-dot {
     color: var(--accent);
 }
 
@@ -25,30 +31,59 @@
     gap: 2rem;
 }
 
-.desktop-links a {
+.nav-link {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
     font-weight: 500;
+    color: var(--text-muted);
+    position: relative;
     transition: color 0.2s;
 }
 
-.desktop-links a:hover {
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.nav-link:hover {
+    color: var(--text);
+}
+
+.nav-link.active {
     color: var(--accent);
+}
+
+.nav-link.active::after {
+    transform: scaleX(1);
 }
 
 .theme-toggle {
     background: none;
-    border: none;
+    border: 1px solid transparent;
     color: var(--text);
     cursor: pointer;
     padding: 0.5rem;
-    border-radius: 50%;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s;
+    transition:
+        background 0.2s,
+        border-color 0.2s;
 }
 
 .theme-toggle:hover {
-    background: var(--foreground);
+    background: var(--surface-2);
+    border-color: var(--border);
 }
 
 /* Hide mobile menu on larger screens */
@@ -71,27 +106,26 @@
         color: var(--text);
         cursor: pointer;
         padding: 0.5rem;
-        border-radius: 4px;
+        border-radius: 8px;
     }
     .dropdown {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 100%;
+        top: calc(100% + 0.5rem);
         right: 0;
-        background: var(--background);
+        background: var(--surface);
         border: 1px solid var(--border);
+        border-radius: 12px;
+        box-shadow: 0 10px 30px color-mix(in srgb, var(--text) 12%, transparent);
         padding: 1rem;
         gap: 1rem;
         z-index: 100;
-        min-width: 120px;
+        min-width: 140px;
         text-align: center;
+        align-items: center;
     }
-    .dropdown a {
-        font-weight: 500;
-        transition: color 0.2s;
-    }
-    .dropdown a:hover {
-        color: var(--accent);
+    .dropdown .nav-link::after {
+        display: none;
     }
 }

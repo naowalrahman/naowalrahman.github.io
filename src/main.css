@@ -1,15 +1,71 @@
+@import "./fonts/fonts.css";
+
+:root {
+    --font-serif: "Iowan Old Style", "Reforma1918", Georgia, serif;
+    --font-sans: "Lunasima", "Lucida Grande", system-ui, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    /* pastel daylight */
+    --background: #faf7f2;
+    --surface: #ffffff;
+    --surface-2: #f2ede4;
+    --code-bg: #f4f1fa;
+    --text: #443e58;
+    --text-muted: #857e9b;
+    --accent: #6d75bd;
+    --accent-strong: #545c99;
+    --rose: #c76b7c;
+    --mint: #3e8f72;
+    --honey: #b07d3a;
+    --border: #e6dfd2;
+}
+
+:root[data-theme="dark"] {
+    /* pastel midnight: warm neutral charcoal, periwinkle accent */
+    --background: #1e1d20;
+    --surface: #262528;
+    --surface-2: #2e2c30;
+    --code-bg: #29272c;
+    --text: #e4e1dc;
+    --text-muted: #a19d97;
+    --accent: #a5aede;
+    --accent-strong: #c2c9ee;
+    --rose: #e8a7a7;
+    --mint: #96d0b0;
+    --honey: #dcbc8a;
+    --border: #3a383c;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     transition:
-        background-color 0.3s,
-        color 0.1s;
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.15s ease;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     background: var(--background);
     color: var(--text);
+    font-family: var(--font-serif);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+    line-height: 1.25;
 }
 
 a {
@@ -17,6 +73,68 @@ a {
     color: inherit;
 }
 
-:root {
-    --accent-rgb: 137, 194, 243;
+::selection {
+    background: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+code,
+kbd,
+pre {
+    font-family: var(--font-mono);
+}
+
+/* Pastel syntax highlighting (highlight.js) that follows the theme */
+.hljs {
+    color: var(--text);
+    background: var(--code-bg);
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-meta {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-tag,
+.hljs-doctag,
+.hljs-built_in {
+    color: var(--accent);
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet {
+    color: var(--mint);
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-deletion,
+.hljs-link {
+    color: var(--rose);
+}
+
+.hljs-title,
+.hljs-name,
+.hljs-section,
+.hljs-attr,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-type,
+.hljs-function {
+    color: var(--honey);
+}
+
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: 700;
 }

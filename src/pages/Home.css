@@ -1,43 +1,52 @@
 .home {
-    font-family: Reforma1918;
-    font-weight: 300;
-    font-style: normal;
     display: flex;
     flex-direction: column;
-    /* padding: 2rem; */
-}
-
-.intro-animation {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    background: var(--primary);
-    border-radius: 50%;
-    z-index: 0;
 }
 
 .header {
+    position: relative;
     text-align: center;
+    padding: 4rem 0 1rem;
     margin-bottom: 2rem;
 }
 
-.header h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.5rem;
+/* Harmonic wave field behind the hero, fading out radially.
+   .header > .hero-curves outranks the .header > * position rule below. */
+.header > .hero-curves {
+    position: absolute;
+    inset: -2.5rem -6rem;
+    width: calc(100% + 12rem);
+    height: calc(100% + 5rem);
+    -webkit-mask-image: radial-gradient(ellipse 60% 80% at 50% 50%, black 25%, transparent 78%);
+    mask-image: radial-gradient(ellipse 60% 80% at 50% 50%, black 25%, transparent 78%);
+    pointer-events: none;
 }
 
-.header h2 {
-    font-size: 1.2em;
+.header > * {
+    position: relative;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.accent-dot {
     color: var(--accent);
+}
+
+.header .tagline {
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--text-muted);
 }
 
 .content-section {
     max-width: 800px;
     margin: 0 auto;
-    /* padding: 1rem; */
+    padding-bottom: 2rem;
 }
 
 .tabs-container {
@@ -47,101 +56,67 @@
 .tabs {
     display: flex;
     justify-content: space-around;
+    gap: 0.75rem;
     margin-bottom: 1rem;
 }
 
 .tab {
-    width: 30%;
+    font-family: var(--font-sans);
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     cursor: pointer;
     padding: 1rem;
-    margin: 0.5rem;
-    border-radius: 8px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    color: var(--text-muted);
     transition:
         background 0.3s,
+        color 0.3s,
+        border-color 0.3s,
         transform 0.3s;
 }
 
 .tab:hover {
-    background: var(--background);
-    transform: scale(1.05);
+    background: var(--surface-2);
+    color: var(--text);
+    transform: translateY(-2px);
 }
 
 .tab.active {
-    background: var(--accent);
-    color: var(--text);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+    color: var(--accent);
 }
 
 .tab-icon {
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin-bottom: 0.5rem;
+}
+
+.tab span {
+    font-weight: 500;
 }
 
 .tab-content {
     text-align: left;
 }
 
+.tab-content .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+}
+
 .tab-content .card-body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    opacity: 1; /* Ensure the card body is visible by default */
+    opacity: 1;
     transition: opacity 0.2s ease-in-out;
-}
-
-.tab-content .card-body .list-item {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background: var(--background);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    transition:
-        background 0.3s,
-        transform 0.3s,
-        opacity 0.2s ease-in-out;
-    opacity: 1; /* Ensure the list items are visible by default */
-}
-
-.tab-content .card-body .list-item.hidden {
-    opacity: 0; /* Apply fade out transition */
-}
-
-.tab-content .card-body .list-item.fade {
-    opacity: 0; /* Apply fade transition */
-}
-
-.tab-content .card-body .list-item:hover {
-    background: var(--accent);
-    transform: scale(1.05);
-    color: var(--text);
-    transition:
-        background 0.3s,
-        transform 0.3s; /* Ensure hover transition works correctly */
-}
-
-.tab-content .card-body .list-item-icon {
-    font-size: 1.5rem;
-    margin-right: 1rem;
-}
-
-.list-group-item {
-    background: var(--background);
-    border-color: var(--border);
-    color: var(--text);
-}
-
-.list-group-item.active {
-    background: var(--accent);
-    border-color: var (--accent);
-}
-
-.card {
-    background: var(--background);
-    border-color: var(--border);
 }
 
 .text-link {
@@ -171,40 +146,27 @@
 }
 
 .text-link:hover {
-    color: var(--primary);
-}
-
-.content {
-    text-align: center;
-    max-width: 800px;
-}
-
-.facts {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    color: var(--accent-strong);
 }
 
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
 }
 
 .social-icons a {
-    color: var(--accent);
+    color: var(--text-muted);
     font-size: 1.5rem;
-    transition: color 0.3s;
+    transition:
+        color 0.3s,
+        transform 0.3s;
 }
 
 .social-icons a:hover {
-    color: var(--primary);
-}
-
-#links-section {
-    padding-bottom: 1rem;
+    color: var(--accent);
+    transform: translateY(-2px);
 }
 
 .book-cards {
@@ -214,27 +176,52 @@
 }
 
 .book-card {
-    background: var(--background);
+    background: var(--surface-2);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
     transition:
         transform 0.3s,
-        box-shadow 0.3s;
+        box-shadow 0.3s,
+        border-color 0.3s;
 }
 
 .book-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
 }
 
 .book-title {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
     color: var(--accent);
 }
 
 .book-desc {
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.25rem;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+    }
+
+    .tab-icon {
+        font-size: 1.25rem;
+        margin-bottom: 0;
+    }
 }

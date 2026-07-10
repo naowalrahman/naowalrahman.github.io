@@ -3,8 +3,21 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Naowal Rahman — CS & applied math student at Columbia, ML researcher, and avid Linux user. Projects, writing, and more."
+        />
         <title>Naowal's Corner</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" />
+        <link rel="icon" href="/favicon.ico" />
+        <script>
+            // Set the theme before first paint to avoid a flash of the wrong theme.
+            // Light by default; dark only if the visitor toggled it before.
+            (function () {
+                var theme = localStorage.getItem("theme") === "dark" ? "dark" : "light";
+                document.documentElement.dataset.theme = theme;
+                document.documentElement.style.colorScheme = theme;
+            })();
+        </script>
     </head>
 
     <body>

@@ -116,19 +116,19 @@ const sideHobbiesData = [
 export default function Projects() {
     return (
         <div className="projects">
-            <motion.h1
-                className="title"
-                initial={{ y: 50, opacity: 0 }}
+            <motion.header
+                className="projects-header"
+                initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5 }}
+                transition={{ duration: 0.4, delay: 0.05 }}
             >
-                My Projects
-            </motion.h1>
+                <h1 className="title">My Projects</h1>
+            </motion.header>
             <motion.div
                 className="projects-grid"
-                initial={{ y: 50, opacity: 0 }}
+                initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 1.0 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
             >
                 {projectsData.map((project, idx) => (
                     <div key={idx} className="project-card" onClick={() => window.open(project.link, "_blank")}>
@@ -139,19 +139,19 @@ export default function Projects() {
                 ))}
             </motion.div>
 
-            <motion.h1
-                className="title"
-                initial={{ y: 50, opacity: 0 }}
+            <motion.header
+                className="projects-header"
+                initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 1.5 }}
+                transition={{ duration: 0.4, delay: 0.15 }}
             >
-                Side Hobbies
-            </motion.h1>
+                <h1 className="title">Side Hobbies</h1>
+            </motion.header>
             <motion.div
                 className="projects-grid"
-                initial={{ y: 50, opacity: 0 }}
+                initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 2.0 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
             >
                 {sideHobbiesData.map((hobby, idx) => (
                     <div key={idx} className="project-card" onClick={() => window.open(hobby.link, "_blank")}>
