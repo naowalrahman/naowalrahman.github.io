@@ -14,7 +14,7 @@ const projectsData = [
         languages: "PyTorch, TA-Lib, scikit-learn, FastAPI, TypeScript",
         title: "Machine LEarning Trader (MALET)",
         description:
-            "A platform to train, test, and analyze machine learning models. Uses LSTM, CNN, Transformer, and GRU-based machine learning models to achieve over 80% average annual returns on the S&P 500, and even more trading leveraged ETFs.",
+            "A platform to train, test, and analyze machine learning models for trading. Uses LSTM, CNN, Transformer, and GRU-based architectures to democratize algorithmic trading and backtesting.",
         link: "https://github.com/naowalrahman/malet",
     },
     {
@@ -28,7 +28,7 @@ const projectsData = [
         languages: "C++",
         title: "Feedforward Neural Network",
         description:
-            "A feedforward neural network with multiple activation and loss function support implemented from scratch. Achieves 97.49% accuracy on the MNIST dataset and 100% accuracy on multiple randomized XOR datasets.",
+            "A feedforward neural network with multiple activation and loss function support implemented from scratch. Achieves 97.49% accuracy on the MNIST handwritten digits dataset and 100% accuracy on multiple randomized XOR datasets.",
         link: "https://github.com/naowalrahman/neural-network",
     },
     {
