@@ -1,7 +1,5 @@
-@import "./fonts/fonts.css";
-
 :root {
-    --font-serif: "Iowan Old Style", "Reforma1918", Georgia, serif;
+    --font-serif: "Iowan Old Style", Georgia, serif;
     --font-sans: "Lunasima", "Lucida Grande", system-ui, sans-serif;
     --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
