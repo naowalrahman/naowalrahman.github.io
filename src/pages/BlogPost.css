@@ -1,0 +1,179 @@
+.blog-post {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 0 4rem;
+}
+
+.back-link {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--accent);
+}
+
+.post-header {
+    margin: 2rem 0 3.5rem;
+}
+
+.post-header h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.post-subtitle {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--text-muted);
+    max-width: 36rem;
+    margin-bottom: 1.25rem;
+}
+
+.post-byline {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.post-404 {
+    margin-top: 1rem;
+}
+
+/* Long-form prose: serif body for a bookish reading feel */
+.prose {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    line-height: 1.75;
+}
+
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote,
+.prose table,
+.prose pre {
+    margin-bottom: 1.25rem;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+    margin: 2.25rem 0 0.9rem;
+}
+
+.prose h2 {
+    font-size: 1.65rem;
+}
+
+.prose h3 {
+    font-size: 1.3rem;
+}
+
+.prose a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+}
+
+.prose a:hover {
+    text-decoration-color: var(--accent);
+}
+
+.prose ul,
+.prose ol {
+    padding-left: 1.5rem;
+}
+
+.prose li {
+    margin-bottom: 0.35rem;
+}
+
+.prose blockquote {
+    border-left: 3px solid var(--accent);
+    background: color-mix(in srgb, var(--accent) 6%, transparent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.75rem 1.25rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.prose code {
+    font-size: 0.85em;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.1em 0.35em;
+}
+
+.prose pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.prose pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+}
+
+.prose img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.prose hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+
+.prose table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.prose th,
+.prose td {
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+}
+
+.prose th {
+    background: var(--surface-2);
+}
+
+/* Keep wide equations centered, and scrollable instead of overflowing */
+.prose .katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.25rem 0;
+    text-align: center;
+}
+
+.prose .katex-display > .katex {
+    display: inline-block;
+    text-align: initial;
+}
+
+@media (max-width: 768px) {
+    .post-header h1 {
+        font-size: 1.9rem;
+    }
+
+    .prose {
+        font-size: 1.02rem;
+    }
+}

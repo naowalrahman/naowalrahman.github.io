@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMoon, FiSun, FiMenu, FiX } from "react-icons/fi";
-import { ROOT_DOMAIN } from "../config";
-import "../fonts/fonts.css";
 import "./Navbar.css";
+
+const links = [
+    { to: "/", label: "About Me" },
+    { to: "/projects", label: "Projects" },
+    { to: "/blog", label: "Blog" },
+];
 
 export default function Navbar({ isDark, toggleTheme }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,16 +44,18 @@ export default function Navbar({ isDark, toggleTheme }) {
     };
 
     return (
-        <motion.nav initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.5 }} className="navbar">
-            <h1 className="logo">Naowal Rahman</h1>
+        <motion.nav initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }} className="navbar">
+            <Link to="/" className="logo">
+                Naowal Rahman<span className="logo-dot">.</span>
+            </Link>
 
             <div className="desktop-links">
-                <Link to="/">About Me</Link>
-                <Link to="/projects">Projects</Link>
-                <a href={`https://${ROOT_DOMAIN}/blog`} target="_blank" rel="noopener noreferrer">
-                    Blog
-                </a>
-                <button onClick={toggleTheme} className="theme-toggle">
+                {links.map(({ to, label }) => (
+                    <NavLink key={to} to={to} className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}>
+                        {label}
+                    </NavLink>
+                ))}
+                <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
                     {isDark ? <FiSun size={20} /> : <FiMoon size={20} />}
                 </button>
             </div>
@@ -69,21 +75,23 @@ export default function Navbar({ isDark, toggleTheme }) {
                             exit="exit"
                             transition={{ duration: 0.3 }}
                         >
-                            <Link to="/" onClick={() => setIsMenuOpen(false)}>
-                                About Me
-                            </Link>
-                            <Link to="/projects" onClick={() => setIsMenuOpen(false)}>
-                                Projects
-                            </Link>
-                            <a href={`https://${ROOT_DOMAIN}/blog`} target="_blank" rel="noopener noreferrer">
-                                Blog
-                            </a>
+                            {links.map(({ to, label }) => (
+                                <NavLink
+                                    key={to}
+                                    to={to}
+                                    className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    {label}
+                                </NavLink>
+                            ))}
                             <button
                                 onClick={() => {
                                     toggleTheme();
                                     setIsMenuOpen(false);
                                 }}
                                 className="theme-toggle"
+                                aria-label="Toggle theme"
                             >
                                 {isDark ? <FiSun size={20} /> : <FiMoon size={20} />}
                             </button>

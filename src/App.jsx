@@ -1,30 +1,50 @@
-import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useState, useEffect, lazy, Suspense } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
-import { tokyoNight } from "./theme";
+import Blog from "./pages/Blog";
 import "./App.css";
 
-// App
+// Lazy-loaded so the markdown/KaTeX/highlighting bundle only ships on post pages
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+
+function getInitialDark() {
+    return localStorage.getItem("theme") === "dark";
+}
+
 function App() {
-    const [isDark, setIsDark] = useState(true);
+    const [isDark, setIsDark] = useState(getInitialDark);
+    const { pathname } = useLocation();
 
     useEffect(() => {
         const root = document.documentElement;
-        const theme = isDark ? tokyoNight.dark : tokyoNight.light;
-        Object.entries(theme).forEach(([key, value]) => {
-            root.style.setProperty(`--${key}`, value);
-        });
+        const theme = isDark ? "dark" : "light";
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+        localStorage.setItem("theme", theme);
     }, [isDark]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
-        <div className={`app ${isDark ? "dark" : "light"}`}>
+        <div className="app">
             <Navbar isDark={isDark} toggleTheme={() => setIsDark(!isDark)} />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/projects" element={<Projects />} />
-            </Routes>
+            <main className="app-main">
+                <Suspense fallback={null}>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/projects" element={<Projects />} />
+                        <Route path="/blog" element={<Blog />} />
+                        <Route path="/blog/:slug" element={<BlogPost />} />
+                    </Routes>
+                </Suspense>
+            </main>
+            <footer className="footer">
+                &copy; {new Date().getFullYear()} Naowal Rahman&nbsp;&middot;&nbsp;&nbsp;thanks for visiting!
+            </footer>
         </div>
     );
 }
