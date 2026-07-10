@@ -6,7 +6,7 @@ It makes use of React and Vite and a bunch of node modules which you can find in
 
 ## Writing a blog post
 
-Drop a markdown file in `src/posts/content/` — the filename becomes the URL slug (`my-post.md` → `/#/blog/my-post`). Start it with frontmatter:
+Drop a markdown file in `src/posts/content/` and the filename becomes the URL slug (`my-post.md` becomes `/#/blog/my-post`). Start it with frontmatter:
 
 ```markdown
 ---
@@ -18,8 +18,7 @@ draft: false
 ---
 
 Post body goes here. GitHub-flavored markdown, LaTeX, and syntax-highlighted
-code blocks all work out of the box. Write display math as fenced blocks,
-with the `$$` fences on their own lines.
+code blocks all work out of the box. Write display math as fenced blocks.
 ```
 
 Posts with `draft: true` are excluded from the site.
