@@ -104,13 +104,6 @@
     text-align: left;
 }
 
-.tab-content .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem 1.75rem;
-}
-
 .tab-content .card-body {
     display: flex;
     flex-direction: column;
@@ -122,31 +115,19 @@
 .text-link {
     color: var(--accent);
     text-decoration: none;
-    position: relative;
-    display: inline-block;
-    transition: color 0.3s;
-}
-
-.text-link::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
-}
-
-.text-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 0% 2px;
+    transition:
+        color 0.3s,
+        background-size 0.3s ease-out;
 }
 
 .text-link:hover {
     color: var(--accent-strong);
+    background-position: left bottom;
+    background-size: 100% 2px;
 }
 
 .social-icons {
