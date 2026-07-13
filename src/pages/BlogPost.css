@@ -6,6 +6,7 @@
 
 .back-link {
     font-family: var(--font-sans);
+    font-size-adjust: none;
     font-size: 0.85rem;
     color: var(--text-muted);
     transition: color 0.2s;
@@ -34,6 +35,7 @@
 
 .post-byline {
     font-family: var(--font-sans);
+    font-size-adjust: none;
     font-size: 0.8rem;
     color: var(--text-muted);
 }
@@ -45,8 +47,16 @@
 /* Long-form prose: serif body for a bookish reading feel */
 .prose {
     font-family: var(--font-serif);
-    font-size: 1.1rem;
-    line-height: 1.75;
+    font-size-adjust: var(--font-serif-adjust);
+    font-size: 1.03rem;
+    line-height: 1.85;
+}
+
+.prose p,
+.prose li,
+.prose td {
+    color: color-mix(in srgb, var(--text) 80%, transparent);
+    text-wrap: pretty;
 }
 
 .prose p,
@@ -100,6 +110,11 @@
     padding: 0.75rem 1.25rem;
     color: var(--text-muted);
     font-style: italic;
+}
+
+.prose strong,
+.prose b {
+    font-weight: 700;
 }
 
 .prose code {

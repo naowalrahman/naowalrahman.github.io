@@ -43,6 +43,7 @@
 
 .project-languages {
     font-family: var(--font-sans);
+    font-size-adjust: none;
     font-size: 0.78rem;
     color: var(--accent);
     padding-bottom: 0.8rem;
