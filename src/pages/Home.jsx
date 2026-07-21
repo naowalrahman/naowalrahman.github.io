@@ -70,11 +70,11 @@ export default function Home() {
                     transition={{ duration: 0.4, delay: 0.2 }}
                 >
                     <p>
-                        Hi! I'm a sophomore at Columbia University studying computer science and applied mathematics.
+                        Hi! I'm a junior at Columbia University studying computer science and applied mathematics.
                         Broadly, I'm also interested in pure mathematics, theoretical physics, robotics, engineering,
-                        and Linux. More specifically, that involves machine learning, computer vision, computational
-                        complexity theory and its applications to robotics, and system level programming. I love working
-                        across the tech stack, and programming in general!
+                        and Linux. More specifically, that involves algorithms, machine learning, computer vision,
+                        computational complexity theory and its applications to robotics, and system level programming.
+                        I love working across the tech stack, and programming in general!
                     </p>
 
                     <div className="tabs-container">
