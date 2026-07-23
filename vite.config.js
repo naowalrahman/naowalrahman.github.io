@@ -24,4 +24,11 @@ export default defineConfig({
     ssr: {
         noExternal: ["react-icons", "framer-motion"],
     },
+    // Emit directory-style output (blog/post/index.html) rather than flat
+    // (blog/post.html). GitHub Pages can't serve files under /blog/ when a
+    // sibling blog.html also exists — it treats /blog as that file — so the
+    // nested layout avoids the file-vs-directory path collision.
+    ssgOptions: {
+        dirStyle: "nested",
+    },
 });
