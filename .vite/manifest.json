@@ -1,6 +1,6 @@
 {
-  "_client-Cn22H0o4.js": {
-    "file": "assets/client-Cn22H0o4.js",
+  "_client-Cs2qZG7p.js": {
+    "file": "assets/client-Cs2qZG7p.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,13 +8,13 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-DgTcfTzd.js",
+    "file": "assets/app-BFHaSEyC.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-Cn22H0o4.js",
-      "_client-Cn22H0o4.js",
+      "_client-Cs2qZG7p.js",
+      "_client-Cs2qZG7p.js",
       "src/pages/BlogPost.jsx"
     ],
     "css": [
@@ -605,7 +605,7 @@
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.woff2"
   },
   "src/pages/BlogPost.jsx": {
-    "file": "assets/BlogPost-BPdbEkBa.js",
+    "file": "assets/BlogPost-B9Ou2Qk5.js",
     "name": "BlogPost",
     "src": "src/pages/BlogPost.jsx",
     "isDynamicEntry": true,
