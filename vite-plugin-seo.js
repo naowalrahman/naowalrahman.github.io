@@ -8,11 +8,10 @@
  * @param {string[]} options.routes - App routes (must match App.jsx <Route> paths).
  */
 export default function seo({ hostname, routes }) {
-    // The site uses HashRouter, so sub-routes live behind a `#`. The home
-    // route is the only path crawlers index directly; sub-routes are still
-    // listed as navigable hash URLs.
+    // Routes are pre-rendered to real static HTML at clean paths, so every
+    // one is a directly crawlable, indexable URL.
     const toUrl = (route) =>
-        route === "/" ? `${hostname}/` : `${hostname}/#${route}`;
+        route === "/" ? `${hostname}/` : `${hostname}${route}`;
 
     const sitemap =
         `<?xml version="1.0" encoding="UTF-8"?>\n` +

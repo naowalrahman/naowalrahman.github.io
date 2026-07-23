@@ -18,4 +18,10 @@ export default defineConfig({
         }),
     ],
     base: "/",
+    // These ship non-standard ESM (directory imports, etc.) that Node's native
+    // resolver chokes on during static generation, so let Vite bundle them
+    // into the SSR build instead of leaving them external.
+    ssr: {
+        noExternal: ["react-icons", "framer-motion"],
+    },
 });

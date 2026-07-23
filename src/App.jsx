@@ -1,19 +1,23 @@
-import { useState, useEffect, lazy, Suspense } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { useState, useEffect, Suspense } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Blog from "./pages/Blog";
+import { posts } from "./posts";
 import "./App.css";
 
-// Lazy-loaded so the markdown/KaTeX/highlighting bundle only ships on post pages
-const BlogPost = lazy(() => import("./pages/BlogPost"));
-
 function getInitialDark() {
-    return localStorage.getItem("theme") === "dark";
+    // Guarded so the layout can also render during static generation, where
+    // localStorage may be absent or present-but-unavailable.
+    try {
+        return localStorage.getItem("theme") === "dark";
+    } catch {
+        return false;
+    }
 }
 
-function App() {
+function Layout() {
     const [isDark, setIsDark] = useState(getInitialDark);
     const { pathname } = useLocation();
 
@@ -34,12 +38,7 @@ function App() {
             <Navbar isDark={isDark} toggleTheme={() => setIsDark(!isDark)} />
             <main className="app-main">
                 <Suspense fallback={null}>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/projects" element={<Projects />} />
-                        <Route path="/blog" element={<Blog />} />
-                        <Route path="/blog/:slug" element={<BlogPost />} />
-                    </Routes>
+                    <Outlet />
                 </Suspense>
             </main>
             <footer className="footer">
@@ -49,4 +48,25 @@ function App() {
     );
 }
 
-export default App;
+export const routes = [
+    {
+        path: "/",
+        element: <Layout />,
+        children: [
+            { index: true, element: <Home />, entry: "src/pages/Home.jsx" },
+            { path: "projects", element: <Projects />, entry: "src/pages/Projects.jsx" },
+            { path: "blog", element: <Blog />, entry: "src/pages/Blog.jsx" },
+            {
+                path: "blog/:slug",
+                // Lazy so the markdown/KaTeX/highlighting bundle only ships on post pages.
+                lazy: async () => {
+                    const { default: BlogPost } = await import("./pages/BlogPost");
+                    return { Component: BlogPost };
+                },
+                entry: "src/pages/BlogPost.jsx",
+                // Enumerates every post so each gets its own pre-rendered HTML file.
+                getStaticPaths: () => posts.map((post) => `/blog/${post.slug}`),
+            },
+        ],
+    },
+];

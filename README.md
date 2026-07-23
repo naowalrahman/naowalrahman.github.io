@@ -6,7 +6,7 @@ It makes use of React and Vite and a bunch of node modules which you can find in
 
 ## Writing a blog post
 
-Drop a markdown file in `src/posts/content/` and the filename becomes the URL slug (`my-post.md` becomes `/#/blog/my-post`). Start it with frontmatter:
+Drop a markdown file in `src/posts/content/` and the filename becomes the URL slug (`my-post.md` becomes `/blog/my-post`). Each route is pre-rendered to static HTML at build time (via `vite-react-ssg`) so pages are directly crawlable. Start it with frontmatter:
 
 ```markdown
 ---
