@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { posts, formatDate } from "../posts";
+import Seo from "../components/Seo";
 import "./Blog.css";
 
 export default function Blog() {
     return (
         <div className="blog">
+            <Seo title="Blog" description="Writing on machine learning, math, and software by Naowal Rahman." />
             <motion.header
                 className="blog-header"
                 initial={{ y: 12, opacity: 0 }}

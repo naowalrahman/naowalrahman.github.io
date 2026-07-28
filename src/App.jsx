@@ -1,6 +1,7 @@
 import { useState, useEffect, Suspense } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Seo from "./components/Seo";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Blog from "./pages/Blog";
@@ -35,6 +36,8 @@ function Layout() {
 
     return (
         <div className="app">
+            {/* Site defaults + a canonical for every route; pages override with their own <Seo>. */}
+            <Seo />
             <Navbar isDark={isDark} toggleTheme={() => setIsDark(!isDark)} />
             <main className="app-main">
                 <Suspense fallback={null}>

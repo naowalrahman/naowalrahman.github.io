@@ -1,6 +1,7 @@
 import "./Projects.css";
 import { motion } from "framer-motion";
 import { ROOT_DOMAIN } from "../config";
+import Seo from "../components/Seo";
 
 const projectsData = [
     {
@@ -116,6 +117,10 @@ const sideHobbiesData = [
 export default function Projects() {
     return (
         <div className="projects">
+            <Seo
+                title="Projects"
+                description="Software and machine learning projects built by Naowal Rahman, from trading models to full-stack web apps."
+            />
             <motion.header
                 className="projects-header"
                 initial={{ y: 12, opacity: 0 }}

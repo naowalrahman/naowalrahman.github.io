@@ -3,11 +3,11 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta
-            name="description"
-            content="Naowal Rahman — CS & applied math student at Columbia, ML researcher, and avid Linux user. Projects, writing, and more."
-        />
-        <title>Naowal's Corner</title>
+        <!-- Title, description, and canonical come from <Seo> (src/components/Seo.jsx) so each
+             route gets its own; static copies here would render as duplicate tags in the
+             pre-rendered HTML, since the generator prepends the per-page ones into <head>.
+             That prepending also pushes the charset meta above down the document — harmless,
+             since GitHub Pages declares the charset in the Content-Type header. -->
         <link rel="icon" href="/favicon.ico" />
         <script>
             // Set the theme before first paint to avoid a flash of the wrong theme.
