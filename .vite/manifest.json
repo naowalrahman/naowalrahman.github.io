@@ -1,6 +1,6 @@
 {
-  "_client-BJ_kn1Lz.js": {
-    "file": "assets/client-BJ_kn1Lz.js",
+  "_client-DP98NehF.js": {
+    "file": "assets/client-DP98NehF.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,17 +8,17 @@
     ]
   },
   "index.html": {
-    "file": "assets/app-D7Zawqcm.js",
+    "file": "assets/app-CZSOhOaY.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-BJ_kn1Lz.js",
-      "_client-BJ_kn1Lz.js",
+      "_client-DP98NehF.js",
+      "_client-DP98NehF.js",
       "src/pages/BlogPost.jsx"
     ],
     "css": [
-      "assets/app-BQ4CC3Pt.css"
+      "assets/app-UOwh67b5.css"
     ],
     "assets": [
       "assets/lunasima-cyrillic-ext-400-normal-DdYqx0wh.woff2",
@@ -605,7 +605,7 @@
     "src": "node_modules/katex/dist/fonts/KaTeX_Typewriter-Regular.woff2"
   },
   "src/pages/BlogPost.jsx": {
-    "file": "assets/BlogPost-Dv1DsbIS.js",
+    "file": "assets/BlogPost-vcxxSDIu.js",
     "name": "BlogPost",
     "src": "src/pages/BlogPost.jsx",
     "isDynamicEntry": true,
