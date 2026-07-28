@@ -53,18 +53,18 @@ const SHELF_SECTIONS = [
             <>
                 <p>
                     I love being around people who are curious and excited about learning. I love to learn new things
-                    and also love to teach them as best as I can. So firstly, learning and collaborating with others is
-                    my favorite thing to do.
-                </p>
-                <p>
-                    Video games are very dear to me&mdash;they inspired me to be creative and learn programming early in
-                    life. With my friends, I usually play Fortnite. Alone, I love Final Fantasy VII Remake Intergrade,
-                    No Man's Sky, and Minecraft.
+                    and then convey them with passion to people who care. So firstly, learning and collaborating with
+                    others is my favorite thing to do.
                 </p>
                 <p>
                     I run and I lift. I track my diet and my sleep. I train for capability. And I find it fun! Lifting
                     started as just a hobby in high school, but it taught me I thrive when I push my limits and stay in
                     healthy discipline.
+                </p>
+                <p>
+                    Video games are very dear to me&mdash;they inspired me to be creative and learn programming early in
+                    life. With my friends, I usually play Fortnite. Alone, I love Final Fantasy VII Remake Intergrade,
+                    No Man's Sky, and Minecraft.
                 </p>
                 <p>
                     As an Arch Linux user since 2020, I of course like ricing Linux and Neovim. Tuning my dotfiles to
